@@ -13,7 +13,9 @@ import { isTauriRuntime } from '@/storage'
  * BYOK 直连请求层（OpenAI 兼容协议）：密钥只在本机内存/存储流转，请求直发供应商。
  *
  * - 桌面端走 @tauri-apps/plugin-http 的 fetch（不受浏览器跨域限制）。
- * - 网页端走浏览器 fetch：部分供应商允许浏览器直连，不允许的会被浏览器拦下，
+ * - 懒猫微服网页端：同源代理可用时走代理（见 web-proxy-fetch），供应商是否
+ *   下发 CORS 头不再影响可用性；密钥仍只在浏览器侧拼装后装信封转发。
+ * - 普通网页端走浏览器 fetch：部分供应商允许浏览器直连，不允许的会被浏览器拦下，
  *   报错文案会提示改用桌面版。
  */
 
@@ -33,7 +35,8 @@ const resolveAiFetch = async (): Promise<FetchLike> => {
         headers: { Origin: '', ...(init?.headers as Record<string, string> | undefined) },
       })
   }
-  return window.fetch.bind(window)
+  const { getWebProxyFetch } = await import('@/utils/web-proxy-fetch')
+  return (await getWebProxyFetch()) || window.fetch.bind(window)
 }
 
 /** 供应商代码来自模型管理的预设；自定义/未知时按地址猜官方渠道，老配置也能命中翻译表 */

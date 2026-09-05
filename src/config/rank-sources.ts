@@ -46,7 +46,7 @@ export interface RankSeedSource {
 
 const RANK_SITES: RankSeedSite[] = [
   {"legacyId": 1, "code": "fanqie", "name": "番茄小说网", "baseUrl": "https://fanqienovel.com", "enabled": 1, "remark": null},
-  {"legacyId": 2, "code": "qidian", "name": "起点中文网", "baseUrl": "https://www.qidian.com/", "enabled": 1, "remark": "隐藏窗口方案过反爬（桌面版）"},
+  {"legacyId": 2, "code": "qidian", "name": "起点中文网", "baseUrl": "https://www.qidian.com/", "enabled": 1, "remark": "真实浏览器渲染过反爬（桌面版隐藏窗口 / 懒猫网页端服务端渲染）"},
   {"legacyId": 3, "code": "qimao", "name": "七猫小说网", "baseUrl": "https://www.qimao.com", "enabled": 1, "remark": null},
 ]
 

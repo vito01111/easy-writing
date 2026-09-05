@@ -31,6 +31,9 @@
             <div class="secondary" v-else>建议使用 UTF-8 编码的 TXT</div>
           </div>
           <button class="ink-btn ink-btn-outline" type="button" @click.stop="triggerPick">选择文件</button>
+          <button v-if="lazycatAvailable" class="ink-btn ink-btn-outline" type="button" @click.stop="pickFromLazycat">
+            从懒猫网盘打开
+          </button>
         </div>
       </div>
 
@@ -136,6 +139,7 @@ import {
   previewLocalChaptersImport,
 } from '@/storage/local-library'
 import type { LocalParsedBook } from '@/storage/local-library'
+import { isLazycatDriveAvailable, pickFileFromLazycat } from '@/utils/lazycat-drive'
 
 const props = defineProps<{
   visible: boolean
@@ -183,6 +187,21 @@ watch(
 
 const triggerPick = () => {
   fileInputRef.value?.click()
+}
+
+// 懒猫微服部署环境：提供"从懒猫网盘打开"入口（文件拦截主干通道）
+const lazycatAvailable = ref(false)
+void isLazycatDriveAvailable().then(ok => {
+  lazycatAvailable.value = ok
+})
+
+const pickFromLazycat = async () => {
+  try {
+    const file = await pickFileFromLazycat(accept.split(','))
+    if (file) setFile(file)
+  } catch (error) {
+    ElMessage.error(error instanceof Error ? error.message : '从懒猫网盘读取失败')
+  }
 }
 
 const setFile = (f: File) => {

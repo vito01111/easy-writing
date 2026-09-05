@@ -1,0 +1,8 @@
+buildscript: node ./build.mjs
+manifest: ./lzc-manifest.yml
+pkgout: ./lpk
+icon: ./icon.png
+images:
+  server:
+    dockerfile: ./Dockerfile
+    context: .

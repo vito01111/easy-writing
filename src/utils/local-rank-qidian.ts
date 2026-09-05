@@ -7,9 +7,9 @@ import { isTauriRuntime } from '@/storage'
  * 起点榜单适配器（移植自老服务端 statistics/service/rank/qidian.ts，cheerio → DOMParser）。
  *
  * 起点全站有 probe.js 反爬，普通请求只能拿到探针拦截页——
- * 抓取走隐藏窗口（local-rank-window）：真实浏览器环境自然通过探针，
- * cookie 由窗口会话自持。月票数字是"反爬字体"混淆，下载页面引用的 ttf
- * 解 cmap+post 表得到 codepoint→数字 映射后还原。
+ * 抓取走真实浏览器渲染（local-rank-window）：桌面端是隐藏窗口，懒猫网页端是
+ * 随包服务端渲染，cookie 均由真实浏览器环境自持。月票数字是"反爬字体"混淆，
+ * 下载页面引用的 ttf 解 cmap+post 表得到 codepoint→数字 映射后还原。
  */
 
 const QIDIAN_RANK_SELECTOR = '#rank-view-list .book-img-text ul li'
@@ -149,7 +149,7 @@ export const applyQidianDigitMap = (items: NovelRankItem[], digitMap: Map<number
   })
 
 const fetchQidianFontDigitMap = async (fontTtfUrl: string, codepoints: number[]): Promise<Map<number, string>> => {
-  if (!fontTtfUrl || !codepoints.length || !isTauriRuntime()) return new Map()
+  if (!fontTtfUrl || !codepoints.length) return new Map()
   let parsed: URL
   try {
     parsed = new URL(fontTtfUrl)
@@ -159,8 +159,18 @@ const fetchQidianFontDigitMap = async (fontTtfUrl: string, codepoints: number[])
   // 只信起点自家 CDN 的字体，防页面内容把我们导去别处
   if (parsed.protocol !== 'https:' || parsed.hostname.toLowerCase() !== QIDIAN_FONT_HOST) return new Map()
   try {
-    const { fetch: tauriFetch } = await import('@tauri-apps/plugin-http')
-    const response = await tauriFetch(fontTtfUrl, {
+    // 桌面端直连下载；懒猫网页端走同源代理（Referer 由服务端代设）；
+    // 开源网页版代理不可用时静默放弃——只损失月票数字，条目本身照常入库
+    let doFetch: ((input: string, init?: RequestInit) => Promise<Response>) | null = null
+    if (isTauriRuntime()) {
+      const { fetch: tauriFetch } = await import('@tauri-apps/plugin-http')
+      doFetch = tauriFetch as unknown as typeof doFetch
+    } else {
+      const { getWebProxyFetch } = await import('@/utils/web-proxy-fetch')
+      doFetch = await getWebProxyFetch()
+    }
+    if (!doFetch) return new Map()
+    const response = await doFetch(fontTtfUrl, {
       method: 'GET',
       headers: { Referer: 'https://www.qidian.com/' },
     })

@@ -38,6 +38,14 @@
             <button type="button" class="ink-btn ink-btn-primary">
               选择文件
             </button>
+            <button
+              v-if="lazycatAvailable"
+              type="button"
+              class="ink-btn ink-btn-primary"
+              @click.stop="pickFromLazycat"
+            >
+              从懒猫网盘打开
+            </button>
             <span class="upload-tip">支持自动识别目录与章节结构</span>
           </div>
         </div>
@@ -182,6 +190,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { inkConfirm } from '@/utils/ink-confirm'
+import { isLazycatDriveAvailable, pickFileFromLazycat } from '@/utils/lazycat-drive'
 import EwModal from '@/components/EwModal/index.vue'
 import type { BreakdownProjectSummary } from '@/types/breakdown'
 // 开源版：拆书全走本地——TXT 本机解析、拆解走本地模型、记录存 IndexedDB
@@ -304,6 +313,23 @@ const handleFileChange = (event: Event) => {
   input.value = ''
   if (!file || !validateUploadFile(file)) return
   startProcess(file)
+}
+
+// 懒猫微服部署环境：提供"从懒猫网盘打开"入口（文件拦截主干通道）
+const lazycatAvailable = ref(false)
+void isLazycatDriveAvailable().then(ok => {
+  lazycatAvailable.value = ok
+})
+
+const pickFromLazycat = async () => {
+  try {
+    const file = await pickFileFromLazycat(['.txt'])
+    if (!file) return
+    if (!validateUploadFile(file)) return
+    startProcess(file)
+  } catch (error) {
+    ElMessage.error(error instanceof Error ? error.message : '从懒猫网盘读取失败')
+  }
 }
 
 const handleDragOver = () => {

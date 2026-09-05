@@ -1,9 +1,9 @@
 /**
- * 图片取回工具（开源版：无服务端代理，全部直取）。
+ * 图片取回工具。
  *
  * - data:/blob: 本身可直接使用（本地生图与封面的主路径，同源无跨域问题）；
- * - 远程地址（生图兜底存的图床 url 等）尝试直接 fetch：桌面端多数可行，
- *   网页端可能被跨域拦下——如实报错，不再有服务端代理可回退。
+ * - 远程地址（生图兜底存的图床 url 等）先尝试直接 fetch；被跨域拦下时改走
+ *   同源代理（懒猫微服部署形态可用），代理也不可用则如实报错。
  */
 
 /** data:/blob: 本身可直接使用，无需取图 */
@@ -19,7 +19,15 @@ export const fetchImageBlob = async (url: string): Promise<Blob> => {
   try {
     response = await fetch(url)
   } catch {
-    throw new Error('远程图片获取失败（可能已过期或受跨域限制）')
+    // 直连被跨域拦下（网页端常态）时改走同源代理（懒猫微服部署形态可用）
+    const { getWebProxyFetch } = await import('@/utils/web-proxy-fetch')
+    const proxied = await getWebProxyFetch()
+    if (!proxied) throw new Error('远程图片获取失败（可能已过期或受跨域限制）')
+    try {
+      response = await proxied(url, { method: 'GET' })
+    } catch {
+      throw new Error('远程图片获取失败（可能已过期或受跨域限制）')
+    }
   }
   if (!response.ok) throw new Error('图片加载失败')
   return response.blob()

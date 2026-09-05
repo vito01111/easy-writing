@@ -1,0 +1,29 @@
+application:
+  subdomain: easywriting
+  routes:
+    # 全部流量交给随包 Node 服务：静态站点（history 路由 SPA 回退）+ /api/fetch 同源代理
+    - /=http://server:3000/
+  entries:
+    - id: main
+      title: 易创
+      path: /
+# 懒猫文件通道：网盘挂载（读）+ 应用文稿（写，document.private 驱动）
+ext_config:
+  enable_media_access: true
+services:
+  server:
+    image: embed:server
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - TZ=Asia/Shanghai
+      - REMOTE_FS_ROOT=/lzcapp/media/RemoteFS
+      - DOCUMENTS_ROOT=/lzcapp/documents
+    healthcheck:
+      # bookworm-slim 无 wget/curl，用镜像内保证存在的 node 自检
+      test:
+        - CMD-SHELL
+        - node -e "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 10s
+      retries: 5

@@ -29,8 +29,37 @@ const saveBlobInBrowser = (blob: Blob, filename: string) => {
   URL.revokeObjectURL(url)
 }
 
+/**
+ * 懒猫微服部署环境下的保存位置二选一。
+ * confirm = 保存到懒猫网盘；cancel 按钮 = 保存到本机；右上角关闭 = 取消导出。
+ */
+const askLazycatOrLocal = async (filename: string): Promise<'lazycat' | 'local' | 'cancel'> => {
+  const { ElMessageBox } = await import('element-plus')
+  try {
+    await ElMessageBox.confirm(`「${filename}」要保存到哪里？`, '导出文件', {
+      confirmButtonText: '保存到懒猫网盘',
+      cancelButtonText: '保存到本机',
+      distinguishCancelAndClose: true,
+      customClass: 'ink-confirm',
+    })
+    return 'lazycat'
+  } catch (action) {
+    return action === 'cancel' ? 'local' : 'cancel'
+  }
+}
+
 export const saveBlobFile = async (blob: Blob, filename: string) => {
   if (!isTauriRuntime()) {
+    // 懒猫微服部署环境：显式提供"保存到懒猫网盘"入口（文件拦截主干通道）
+    const { isLazycatDriveAvailable } = await import('@/utils/lazycat-drive')
+    if (await isLazycatDriveAvailable()) {
+      const target = await askLazycatOrLocal(filename)
+      if (target === 'cancel') return false
+      if (target === 'lazycat') {
+        const { saveBlobToLazycat } = await import('@/utils/lazycat-drive')
+        return await saveBlobToLazycat(blob, filename)
+      }
+    }
     saveBlobInBrowser(blob, filename)
     return true
   }

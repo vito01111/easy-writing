@@ -42,3 +42,9 @@ coverage
 *.tsbuildinfo
 .eslintcache
 stats.html
+
+# 懒猫 LPK 构建产物
+lazycat/.build-context/
+lazycat/lpk/
+lazycat/content/
+lazycat/.lzc-cli-cache/

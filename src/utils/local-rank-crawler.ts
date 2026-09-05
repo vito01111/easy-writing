@@ -10,7 +10,10 @@ import { crawlRankPageViaWindow } from '@/utils/local-rank-window'
  * 榜单本机爬虫（移植自老服务端 statistics/service/rank 的番茄/七猫适配器）。
  *
  * - 桌面端走 @tauri-apps/plugin-http（可带 UA/Referer，不受跨域限制）；
- *   网页端浏览器直连必被跨域拦下，直接给可读提示——榜单抓取是桌面版功能。
+ * - 懒猫微服网页端走同源代理（UA/Referer 由代理服务端代设）：番茄/七猫是
+ *   纯 HTTP 源（SSR HTML / JSON 接口），照常可抓；起点需要隐藏渲染窗口过
+ *   反爬（crawlRankPageViaWindow），仍是桌面版功能；
+ * - 开源网页版无代理，浏览器直连必被跨域拦下，给可读提示；
  * - 番茄：抓榜单页 HTML（SSR 首屏，约头部 20-30 名；懒加载后续页归 V2），
  *   DOMParser 解析 + 私用区字体映射解码；乱码超半数熔断报错，保住上一份好快照。
  * - 七猫：官方 JSON 接口，按 meta.maxPages 翻页合并。
@@ -26,7 +29,10 @@ const resolveCrawlFetch = async (): Promise<FetchLike> => {
     const { fetch: tauriFetch } = await import('@tauri-apps/plugin-http')
     return tauriFetch as unknown as FetchLike
   }
-  throw new Error('榜单抓取是桌面版功能：浏览器受跨域限制无法直接访问平台站点，请在桌面客户端使用')
+  const { getWebProxyFetch } = await import('@/utils/web-proxy-fetch')
+  const proxied = await getWebProxyFetch()
+  if (proxied) return proxied
+  throw new Error('榜单抓取需要桌面版或懒猫微服部署：浏览器直连受跨域限制，无法直接访问平台站点')
 }
 
 const fetchWithTimeout = async (url: string, init: RequestInit) => {

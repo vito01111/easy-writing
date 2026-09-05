@@ -1,0 +1,319 @@
+{
+  "schema": "lazycat-intercept-check/v1",
+  "status": "warning",
+  "pkg": "cloud.lazycat.app.easywriting",
+  "version": "1.0.8",
+  "domain": "https://easywriting.<box-user>.heiyu.space",
+  "platform_inject": "ok",
+  "summary": {
+    "checks_total": 20,
+    "ok": 11,
+    "blocking": 0,
+    "warning": 1,
+    "skip": 2,
+    "info": 6
+  },
+  "checks": [
+    {
+      "id": "L2.1",
+      "status": "ok",
+      "title": "登录态注入",
+      "detail": "SSO 登录态有效",
+      "hint": ""
+    },
+    {
+      "id": "L0.3",
+      "status": "info",
+      "title": "盒子上下文（ingress 启动时间 / perms.json）",
+      "detail": "ingress since 2026-09-04T19:29:31.843969504Z; perms.json=<no-file>",
+      "hint": ""
+    },
+    {
+      "id": "L0.1",
+      "status": "info",
+      "title": "平台 inject 金丝雀（excalidraw）",
+      "detail": "注入 script 标签 2 个 → 平台注入管线 正常",
+      "hint": ""
+    },
+    {
+      "id": "L0.2",
+      "status": "info",
+      "title": "WebDAV /_lzc/files/home 探活",
+      "detail": "status=207（401=平台票据/权限通道收紧，官方注入脚本回填依赖它）",
+      "hint": ""
+    },
+    {
+      "id": "L1.1",
+      "status": "ok",
+      "title": "ext_config.enable_media_access 声明（读通道）",
+      "detail": "已声明",
+      "hint": ""
+    },
+    {
+      "id": "L1.2",
+      "status": "ok",
+      "title": "permissions.document.private 声明（写通道）",
+      "detail": "已声明",
+      "hint": ""
+    },
+    {
+      "id": "L1.3a",
+      "status": "ok",
+      "title": "运行态 /lzcapp/media/RemoteFS 挂载",
+      "detail": "cloudlazycatappeasywriting-server-1: 可见",
+      "hint": ""
+    },
+    {
+      "id": "L1.3b",
+      "status": "ok",
+      "title": "运行态 /lzcapp/documents 挂载",
+      "detail": "可见 uid 目录: oneway-sync.value, vito",
+      "hint": ""
+    },
+    {
+      "id": "L2.2",
+      "status": "ok",
+      "title": "列目录契约 GET /api/lazycat/list?root=netdisk",
+      "detail": "status=200",
+      "hint": ""
+    },
+    {
+      "id": "L2.3",
+      "status": "ok",
+      "title": "用户隔离（列表不泄露其他用户目录）",
+      "detail": "盒子用户目录 ['oneway-sync.value', 'vito']; 泄露: 无",
+      "hint": ""
+    },
+    {
+      "id": "L2.4",
+      "status": "ok",
+      "title": "穿越防护（../<其他用户> 被拒）",
+      "detail": "status=400（期望 4xx）",
+      "hint": "path 服务端必须拼接当前用户根并拒绝 ../ 与绝对路径"
+    },
+    {
+      "id": "L2.5",
+      "status": "skip",
+      "title": "挂载容错",
+      "detail": "当前无可达性样本（无未就绪挂载），N/A",
+      "hint": ""
+    },
+    {
+      "id": "L2.6",
+      "status": "warning",
+      "title": "UI 入口（标准文案）",
+      "detail": "/ 均未找到标准文案；截图 zh-entry.png",
+      "hint": "标准文案惯例见 backend-channel.md；入口在内页时用 --entry-paths 指路"
+    },
+    {
+      "id": "L3.1",
+      "status": "ok",
+      "title": "写入契约 POST /api/lazycat/save",
+      "detail": "status=200; intercept-check-probe-1788651568.md",
+      "hint": ""
+    },
+    {
+      "id": "L3.2",
+      "status": "ok",
+      "title": "落盘核验（documents 下 size>0）",
+      "detail": "/lzcapp/documents/vito/intercept-check-probe-1788651568.md",
+      "hint": ""
+    },
+    {
+      "id": "L3.3",
+      "status": "ok",
+      "title": "读回比对（GET /api/lazycat/file 字节一致）",
+      "detail": "status=200; marker 命中",
+      "hint": ""
+    },
+    {
+      "id": "L3.4",
+      "status": "info",
+      "title": "探针清理",
+      "detail": "已删除 intercept-check-probe-1788651568.md",
+      "hint": ""
+    },
+    {
+      "id": "L4.1",
+      "status": "skip",
+      "title": "双用户隔离",
+      "detail": "未传 --second-storage（可选强验证）",
+      "hint": ""
+    },
+    {
+      "id": "E.1",
+      "status": "info",
+      "title": "inject hook 装载",
+      "detail": "hook 断言 未装载（仅记录，不阻塞）",
+      "hint": ""
+    },
+    {
+      "id": "E.2",
+      "status": "info",
+      "title": "拦截弹窗冒烟",
+      "detail": "金丝雀已证明注入工作，弹窗冒烟留给应用 flow（记录项）",
+      "hint": ""
+    }
+  ],
+  "steps": [
+    {
+      "step": "ssh-probe",
+      "host": "lzcbox-6d75348c"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "tab list --json",
+      "exit_code": 0,
+      "out_tail": "[\n  {\n    \"id\": \"4f0c\",\n    \"url\": \"about:blank\",\n    \"title\": \"about:blank\",\n    \"active\": true\n  }\n]"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "session adopt 4f0c",
+      "exit_code": 0,
+      "out_tail": "已收编标签页 [4f0c] -> session \"intercept-check\""
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open about:blank --new",
+      "exit_code": 0,
+      "out_tail": "已打开: about:blank\n已加载完成\nTab ID: F85DFCD4FE7957D639D23FAE530ADD3B"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "tab list --json",
+      "exit_code": 0,
+      "out_tail": " {\n    \"id\": \"4f0c\",\n    \"url\": \"about:blank\",\n    \"title\": \"about:blank\",\n    \"active\": false\n  },\n  {\n    \"id\": \"dd3b\",\n    \"url\": \"about:blank\",\n    \"title\": \"about:blank\",\n    \"active\": true\n  }\n]"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval 1 --tab",
+      "exit_code": 0,
+      "out_tail": "1"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval 1 --tab",
+      "exit_code": 0,
+      "out_tail": "1"
+    },
+    {
+      "step": "probe",
+      "cap_eval_expect": true,
+      "world_flag": "--global"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://<box-user>.heiyu.space/ --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://<box-user>.heiyu.space/\n已加载完成（最终 https://<box-user>.heiyu.space/#/）\nTab ID: 64CDB8482CF1106C7DB42A3A26302884"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "tab list --json",
+      "exit_code": 0,
+      "out_tail": " \"dd3b\",\n    \"url\": \"about:blank\",\n    \"title\": \"about:blank\",\n    \"active\": false\n  },\n  {\n    \"id\": \"2884\",\n    \"url\": \"https://<box-user>.heiyu.space/#/\",\n    \"title\": \"懒猫微服启动器\",\n    \"active\": true\n  }\n]"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "storage load --tab",
+      "exit_code": 0,
+      "out_tail": "已从 D:\\7.code\\lazycat-skills\\.secrets\\browser\\vito-storage-state.json 注入 (cookies: 1, localStorage 条目: 0)\n提示: localStorage 仅写入与当前页面同源的条目;其他来源请先导航到对应页面再 load"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://easywriting.<box-user>.heiyu.space --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://easywriting.<box-user>.heiyu.space\n已加载完成（最终 https://easywriting.<box-user>.heiyu.space/novel）\nTab ID: 33A30E301637AC25122A6EB891F2C790"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "get url --tab",
+      "exit_code": 0,
+      "out_tail": "https://easywriting.<box-user>.heiyu.space/novel"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://excalidraw.<box-user>.heiyu.space/ --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://excalidraw.<box-user>.heiyu.space/\n已加载完成\nTab ID: 49F27995EB576DFC021E704A47A68084"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval document.querySelectorAll('script[src*=\"lazycat-injects\"], script[src*=\"_lzc/injects\"]').length --tab",
+      "exit_code": 0,
+      "out_tail": "2"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval fetch('/_lzc/files/home', {method:'PROPFIND', credentials:'include',headers:{Depth:'0'}}).then(r=>String(r.status)).catch(e=>'ERR') --tab",
+      "exit_code": 0,
+      "out_tail": "207"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://easywriting.<box-user>.heiyu.space --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://easywriting.<box-user>.heiyu.space\n已加载完成（最终 https://easywriting.<box-user>.heiyu.space/novel）\nTab ID: EDD46C113F6385AC3FA97A02E6E27357"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval fetch('/api/lazycat/list?root=netdisk').then(r=>r.text().then(t=>r.status+'\\n'+t.slice(0,2000))).catch(e=>'ERR\\n'+String(e)) --tab",
+      "exit_code": 0,
+      "out_tail": "200\n{\"ok\":true,\"items\":[{\"name\":\"quark-cloud-drive\",\"dir\":true,\"reachable\":true},{\"name\":\"QuarkUC-quark-uc-cloud-drive\",\"dir\":true,\"reachable\":true}]}"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval fetch('/api/lazycat/list?root=netdisk&path=../oneway-sync.value').then(r=>r.text().then(t=>r.status+'\\n'+t.slice(0,2000))).catch(e=>'ERR\\n'+String(e)) --tab",
+      "exit_code": 0,
+      "out_tail": "400\n{\"ok\":false,\"error\":\"invalid path\"}"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://easywriting.<box-user>.heiyu.space/ --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://easywriting.<box-user>.heiyu.space/\n已加载完成（最终 https://easywriting.<box-user>.heiyu.space/novel）\nTab ID: 30DC90E779A522AC0788757844B8F404"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval String(/从懒猫网盘|保存到懒猫网盘/.test(document.body ? document.body.innerText : '')) --tab",
+      "exit_code": 0,
+      "out_tail": "false"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/zh-entry.png",
+      "exit_code": 1,
+      "out_tail": "Missing --tab. Run 'cat-browser tab list' to see open tabs."
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://easywriting.<box-user>.heiyu.space --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://easywriting.<box-user>.heiyu.space\n已加载完成（最终 https://easywriting.<box-user>.heiyu.space/novel）\nTab ID: BB70C79628F175D667DF5A851F559457"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval fetch('/api/lazycat/save', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({\"root\": \"documents\", \"filename\": \"intercept-check-probe-1788651568.md\", \"content\": \"# intercept-check-probe\\nintercept-check-probe-1788651568\\n\"})}).then(r=>r.text().then(t=>r.status+'\\n'+t.slice(0,2000))).catch(e=>'ERR\\n'+String(e)) --tab",
+      "exit_code": 0,
+      "out_tail": "200\n{\"ok\":true,\"path\":\"vito/intercept-check-probe-1788651568.md\"}"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval fetch('/api/lazycat/file?root=documents&path=intercept-check-probe-1788651568.md').then(r=>r.text().then(t=>r.status+'\\n'+t.slice(0,2000))).catch(e=>'ERR\\n'+String(e)) --tab",
+      "exit_code": 0,
+      "out_tail": "200\n# intercept-check-probe\nintercept-check-probe-1788651568"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "open https://easywriting.<box-user>.heiyu.space --new",
+      "exit_code": 0,
+      "out_tail": "已打开: https://easywriting.<box-user>.heiyu.space\n已加载完成（最终 https://easywriting.<box-user>.heiyu.space/novel）\nTab ID: 91CBAA88C7DCA54EE3D8FC4F46625007"
+    },
+    {
+      "step": "cat-browser",
+      "cmd": "eval String(!!(window.__lzcOpenSaveChooserHooks || (HTMLInputElement.prototype.click || '').toString().includes('__lzcHooked'))) --tab",
+      "exit_code": 0,
+      "out_tail": "false"
+    }
+  ]
+}
