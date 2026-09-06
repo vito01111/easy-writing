@@ -48,3 +48,6 @@ lazycat/.build-context/
 lazycat/lpk/
 lazycat/content/
 lazycat/.lzc-cli-cache/
+
+# 懒猫 LPK 构建产物（商店瘦包，体积大二进制不入库）
+lazycat/lpk-store/
