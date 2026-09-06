@@ -1,16 +1,16 @@
 {
   "schema": "lazycat-delivery-audit/v1",
-  "generated_at": "2026-09-06T09:24:29+08:00",
+  "generated_at": "2026-09-07T07:29:36+08:00",
   "app_repo": "D:\\7.code\\easy-writing",
   "package": "cloud.lazycat.app.easywriting",
   "version": "1.0.8",
   "domain": "https://easywriting.<box-user>.heiyu.space",
   "submitted_locally": true,
   "summary": {
-    "ok": 21,
+    "ok": 23,
     "blocking": 0,
-    "warning": 4,
-    "info": 6,
+    "warning": 1,
+    "info": 7,
     "skip": 1,
     "checks_total": 32
   },
@@ -63,24 +63,17 @@
     },
     {
       "id": "v0.git-clean",
-      "status": "warning",
-      "title": "工作区有 12 处未提交改动",
-      "detail": "?? verify/1.0.8/cruise.flow；?? verify/1.0.8/screenshots/cruise-01-home.png；?? verify/1.0.8/screenshots/cruise-02-novel.png；?? verify/1.0.8/screenshots/cruise-03-mybooks.png；?? verify/1.0.8/screenshots/cruise-04-workflow.png",
-      "hint": "交付应已全部提交"
+      "status": "ok",
+      "title": "git 工作区干净（交付已提交；审计镜像已豁免）",
+      "detail": "",
+      "hint": ""
     },
     {
       "id": "v0.git-hygiene",
-      "status": "warning",
-      "title": "跟踪文件名含 '$'（变量未展开残留）",
-      "detail": "store-assets/screenshots$NAME.png",
-      "hint": "PowerShell 单引号/拼接错误产物，删除并提交"
-    },
-    {
-      "id": "v0.git-hygiene-lpk",
-      "status": "warning",
-      "title": "LPK 二进制被提交进 git",
-      "detail": "lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.8.lpk",
-      "hint": "LPK 应 gitignore，产物不入库"
+      "status": "ok",
+      "title": "无变量残留文件名",
+      "detail": "",
+      "hint": ""
     },
     {
       "id": "v1.lpk-no-embedded-images",
@@ -158,9 +151,16 @@
     {
       "id": "v2.diff-scope",
       "status": "info",
-      "title": "最近 lazycat/ 提交（未给 --base-ref，仅列出）",
-      "detail": "f26daf7 chore(store): v1.0.8 上架送审资料与 store lane 构建文件\n40fae79 feat: 移植懒猫微服 Web 版：同源代理/服务端渲染抓取/懒猫网盘文件拦截",
+      "title": "git 改动范围（74ebfe4..HEAD，66 文件）",
+      "detail": ".gitignore；icon.png；lazycat/Dockerfile；lazycat/README.md；lazycat/build.mjs；lazycat/icon.png；lazycat/lzc-build.store.yml；lazycat/lzc-build.yml；lazycat/lzc-manifest.store.yml；lazycat/lzc-manifest.yml",
       "hint": ""
+    },
+    {
+      "id": "v2.diff-scope-signoff",
+      "status": "info",
+      "title": "[签核] 改动范围 = 声称范围",
+      "detail": "12 处定位已记录",
+      "hint": "对照交付声称的改动清单，确认无越界改动（未动无关模块/未夹带私货）"
     },
     {
       "id": "v3.entry-auth",
@@ -353,6 +353,74 @@
         }
       ],
       "instruction": "对照会话声称的修复（如 fsSync 导入），确认修复真实在码且无同类残留"
+    },
+    {
+      "layer": "V2",
+      "id": "v2.diff-scope-signoff",
+      "title": "改动范围 = 声称范围",
+      "locations": [
+        {
+          "file": ".gitignore",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "icon.png",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/Dockerfile",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/README.md",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/build.mjs",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/icon.png",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/lzc-build.store.yml",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/lzc-build.yml",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/lzc-manifest.store.yml",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/lzc-manifest.yml",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/package.yml",
+          "line": 0,
+          "context": ""
+        },
+        {
+          "file": "lazycat/render_worker.py",
+          "line": 0,
+          "context": ""
+        }
+      ],
+      "instruction": "对照交付声称的改动清单，确认无越界改动（未动无关模块/未夹带私货）"
     },
     {
       "layer": "V6",
