@@ -1,0 +1,96 @@
+# cruise.flow — easy-writing v1.0.8 路由巡航剧本（模板：域名/路径占位符）
+# 执行前实例化：<app-domain>/<gateway-domain>/<skills-repo>/<verify-dir> 替换为真实值
+# （真实域名只进 gitignored 目录，模板入库保持占位符）。
+# 运行：cat-browser run <实例化副本> --continue --report flow-report.json --session delivery-audit
+# 约定见 lazycat-deploy-verify/references/delivery-acceptance.md §4.1
+#
+# 设计要点（2026-09-06 试点教训）：
+# - 每段 tab new 开新 tab：open 无 --tab 会导航「当前活跃 tab」，若那是别的会话
+#   遗留 tab 会触发所有权拒绝；tab new 保证 tab 归属本会话。
+# - wait 选择器用应用真实挂载点（本应用是 #app，不是 #root）——写错选择器
+#   会让每段 wait 超时，flow 化后这是显式失败而非被手工操作掩盖。
+
+# @section S0 SSO 登录态注入（网关域 tab → storage load → 关闭；cookie 域通配全应用生效）
+tab new <gateway-domain>/
+storage load --file <skills-repo>/.secrets/browser/vito-storage-state.json --allow-storage-write
+close
+
+# @section 01 首页
+tab new <app-domain>/home
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-01-home.png
+close
+
+# @section 02 写作
+tab new <app-domain>/novel
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-02-novel.png
+close
+
+# @section 03 我的作品
+tab new <app-domain>/myBooks
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-03-mybooks.png
+close
+
+# @section 04 工作流建书
+tab new <app-domain>/workflowBook
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-04-workflow.png
+close
+
+# @section 05 码字统计
+tab new <app-domain>/writeStatistics
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-05-stats.png
+close
+
+# @section 06 榜单风向
+tab new <app-domain>/novelRank
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-06-rank.png
+close
+
+# @section 07 竞品拆书
+tab new <app-domain>/bookBreakdown
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-07-breakdown.png
+close
+
+# @section 08 灵感素材
+tab new <app-domain>/inspiration
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-08-inspiration.png
+close
+
+# @section 09 AI 模型
+tab new <app-domain>/aiModels
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-09-models.png
+close
+
+# @section 10 提示词
+tab new <app-domain>/prompts
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-10-prompts.png
+close
+
+# @section 11 反馈
+tab new <app-domain>/feedback
+wait --selector "#app>*"
+console --fail-on error
+screenshot <verify-dir>/screenshots/cruise-11-feedback.png
+close
+
+# @section S9 收尾
+gc

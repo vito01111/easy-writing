@@ -1,0 +1,482 @@
+{
+  "ok": true,
+  "executed": 59,
+  "total": 59,
+  "totalMs": 23455,
+  "failedCount": 0,
+  "failures": [],
+  "steps": [
+    {
+      "line": 14,
+      "section": "S0 SSO 登录态注入（网关域 tab → storage load → 关闭；cookie 域通配全应用生效）",
+      "command": "tab new https://<box-user>.heiyu.space/",
+      "exitCode": 0,
+      "durationMs": 1100,
+      "outputTail": "已创建新标签页: [0a9d] https://<box-user>.heiyu.space/"
+    },
+    {
+      "line": 15,
+      "section": "S0 SSO 登录态注入（网关域 tab → storage load → 关闭；cookie 域通配全应用生效）",
+      "command": "storage load --file D:/7.code/lazycat-skills/.secrets/browser/vito-storage-state.json --allow-storage-write --tab 0a9d",
+      "exitCode": 0,
+      "durationMs": 17,
+      "outputTail": "已从 D:\\7.code\\lazycat-skills\\.secrets\\browser\\vito-storage-state.json 注入 (cookies: 1, localStorage 条目: 0)\n提示: localStorage 仅写入与当前页面同源的条目;其他来源请先导航到对应页面再 load"
+    },
+    {
+      "line": 16,
+      "section": "S0 SSO 登录态注入（网关域 tab → storage load → 关闭；cookie 域通配全应用生效）",
+      "command": "close --tab 0a9d",
+      "exitCode": 0,
+      "durationMs": 11,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 19,
+      "section": "01 首页",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/home",
+      "exitCode": 0,
+      "durationMs": 28,
+      "outputTail": "已创建新标签页: [39e8] https://easywriting.<box-user>.heiyu.space/home"
+    },
+    {
+      "line": 20,
+      "section": "01 首页",
+      "command": "wait --selector #app>* --tab 39e8",
+      "exitCode": 0,
+      "durationMs": 1032,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 21,
+      "section": "01 首页",
+      "command": "console --fail-on error --tab 39e8",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 22,
+      "section": "01 首页",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-01-home.png --tab 39e8",
+      "exitCode": 0,
+      "durationMs": 665,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-01-home.png"
+    },
+    {
+      "line": 23,
+      "section": "01 首页",
+      "command": "close --tab 39e8",
+      "exitCode": 0,
+      "durationMs": 7,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 26,
+      "section": "02 写作",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/novel",
+      "exitCode": 0,
+      "durationMs": 35,
+      "outputTail": "已创建新标签页: [06a6] https://easywriting.<box-user>.heiyu.space/novel"
+    },
+    {
+      "line": 27,
+      "section": "02 写作",
+      "command": "wait --selector #app>* --tab 06a6",
+      "exitCode": 0,
+      "durationMs": 1018,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 28,
+      "section": "02 写作",
+      "command": "console --fail-on error --tab 06a6",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 29,
+      "section": "02 写作",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-02-novel.png --tab 06a6",
+      "exitCode": 0,
+      "durationMs": 568,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-02-novel.png"
+    },
+    {
+      "line": 30,
+      "section": "02 写作",
+      "command": "close --tab 06a6",
+      "exitCode": 0,
+      "durationMs": 9,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 33,
+      "section": "03 我的作品",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/myBooks",
+      "exitCode": 0,
+      "durationMs": 32,
+      "outputTail": "已创建新标签页: [7ced] https://easywriting.<box-user>.heiyu.space/myBooks"
+    },
+    {
+      "line": 34,
+      "section": "03 我的作品",
+      "command": "wait --selector #app>* --tab 7ced",
+      "exitCode": 0,
+      "durationMs": 1019,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 35,
+      "section": "03 我的作品",
+      "command": "console --fail-on error --tab 7ced",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 36,
+      "section": "03 我的作品",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-03-mybooks.png --tab 7ced",
+      "exitCode": 0,
+      "durationMs": 383,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-03-mybooks.png"
+    },
+    {
+      "line": 37,
+      "section": "03 我的作品",
+      "command": "close --tab 7ced",
+      "exitCode": 0,
+      "durationMs": 8,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 40,
+      "section": "04 工作流建书",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/workflowBook",
+      "exitCode": 0,
+      "durationMs": 32,
+      "outputTail": "已创建新标签页: [053f] https://easywriting.<box-user>.heiyu.space/workflowBook"
+    },
+    {
+      "line": 41,
+      "section": "04 工作流建书",
+      "command": "wait --selector #app>* --tab 053f",
+      "exitCode": 0,
+      "durationMs": 1029,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 42,
+      "section": "04 工作流建书",
+      "command": "console --fail-on error --tab 053f",
+      "exitCode": 0,
+      "durationMs": 5,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 43,
+      "section": "04 工作流建书",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-04-workflow.png --tab 053f",
+      "exitCode": 0,
+      "durationMs": 2391,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-04-workflow.png"
+    },
+    {
+      "line": 44,
+      "section": "04 工作流建书",
+      "command": "close --tab 053f",
+      "exitCode": 0,
+      "durationMs": 6,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 47,
+      "section": "05 码字统计",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/writeStatistics",
+      "exitCode": 0,
+      "durationMs": 33,
+      "outputTail": "已创建新标签页: [3dbb] https://easywriting.<box-user>.heiyu.space/writeStatistics"
+    },
+    {
+      "line": 48,
+      "section": "05 码字统计",
+      "command": "wait --selector #app>* --tab 3dbb",
+      "exitCode": 0,
+      "durationMs": 1024,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 49,
+      "section": "05 码字统计",
+      "command": "console --fail-on error --tab 3dbb",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 3 条，无 error 违规）"
+    },
+    {
+      "line": 50,
+      "section": "05 码字统计",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-05-stats.png --tab 3dbb",
+      "exitCode": 0,
+      "durationMs": 1718,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-05-stats.png"
+    },
+    {
+      "line": 51,
+      "section": "05 码字统计",
+      "command": "close --tab 3dbb",
+      "exitCode": 0,
+      "durationMs": 7,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 54,
+      "section": "06 榜单风向",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/novelRank",
+      "exitCode": 0,
+      "durationMs": 31,
+      "outputTail": "已创建新标签页: [9423] https://easywriting.<box-user>.heiyu.space/novelRank"
+    },
+    {
+      "line": 55,
+      "section": "06 榜单风向",
+      "command": "wait --selector #app>* --tab 9423",
+      "exitCode": 0,
+      "durationMs": 1030,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 56,
+      "section": "06 榜单风向",
+      "command": "console --fail-on error --tab 9423",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 4 条，无 error 违规）"
+    },
+    {
+      "line": 57,
+      "section": "06 榜单风向",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-06-rank.png --tab 9423",
+      "exitCode": 0,
+      "durationMs": 1370,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-06-rank.png"
+    },
+    {
+      "line": 58,
+      "section": "06 榜单风向",
+      "command": "close --tab 9423",
+      "exitCode": 0,
+      "durationMs": 7,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 61,
+      "section": "07 竞品拆书",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/bookBreakdown",
+      "exitCode": 0,
+      "durationMs": 28,
+      "outputTail": "已创建新标签页: [098d] https://easywriting.<box-user>.heiyu.space/bookBreakdown"
+    },
+    {
+      "line": 62,
+      "section": "07 竞品拆书",
+      "command": "wait --selector #app>* --tab 098d",
+      "exitCode": 0,
+      "durationMs": 1023,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 63,
+      "section": "07 竞品拆书",
+      "command": "console --fail-on error --tab 098d",
+      "exitCode": 0,
+      "durationMs": 3,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 64,
+      "section": "07 竞品拆书",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-07-breakdown.png --tab 098d",
+      "exitCode": 0,
+      "durationMs": 388,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-07-breakdown.png"
+    },
+    {
+      "line": 65,
+      "section": "07 竞品拆书",
+      "command": "close --tab 098d",
+      "exitCode": 0,
+      "durationMs": 6,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 68,
+      "section": "08 灵感素材",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/inspiration",
+      "exitCode": 0,
+      "durationMs": 31,
+      "outputTail": "已创建新标签页: [d83e] https://easywriting.<box-user>.heiyu.space/inspiration"
+    },
+    {
+      "line": 69,
+      "section": "08 灵感素材",
+      "command": "wait --selector #app>* --tab d83e",
+      "exitCode": 0,
+      "durationMs": 1027,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 70,
+      "section": "08 灵感素材",
+      "command": "console --fail-on error --tab d83e",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 71,
+      "section": "08 灵感素材",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-08-inspiration.png --tab d83e",
+      "exitCode": 0,
+      "durationMs": 1311,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-08-inspiration.png"
+    },
+    {
+      "line": 72,
+      "section": "08 灵感素材",
+      "command": "close --tab d83e",
+      "exitCode": 0,
+      "durationMs": 7,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 75,
+      "section": "09 AI 模型",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/aiModels",
+      "exitCode": 0,
+      "durationMs": 34,
+      "outputTail": "已创建新标签页: [252c] https://easywriting.<box-user>.heiyu.space/aiModels"
+    },
+    {
+      "line": 76,
+      "section": "09 AI 模型",
+      "command": "wait --selector #app>* --tab 252c",
+      "exitCode": 0,
+      "durationMs": 1027,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 77,
+      "section": "09 AI 模型",
+      "command": "console --fail-on error --tab 252c",
+      "exitCode": 0,
+      "durationMs": 3,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 78,
+      "section": "09 AI 模型",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-09-models.png --tab 252c",
+      "exitCode": 0,
+      "durationMs": 728,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-09-models.png"
+    },
+    {
+      "line": 79,
+      "section": "09 AI 模型",
+      "command": "close --tab 252c",
+      "exitCode": 0,
+      "durationMs": 5,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 82,
+      "section": "10 提示词",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/prompts",
+      "exitCode": 0,
+      "durationMs": 27,
+      "outputTail": "已创建新标签页: [9a6b] https://easywriting.<box-user>.heiyu.space/prompts"
+    },
+    {
+      "line": 83,
+      "section": "10 提示词",
+      "command": "wait --selector #app>* --tab 9a6b",
+      "exitCode": 0,
+      "durationMs": 1033,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 84,
+      "section": "10 提示词",
+      "command": "console --fail-on error --tab 9a6b",
+      "exitCode": 0,
+      "durationMs": 3,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 85,
+      "section": "10 提示词",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-10-prompts.png --tab 9a6b",
+      "exitCode": 0,
+      "durationMs": 669,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-10-prompts.png"
+    },
+    {
+      "line": 86,
+      "section": "10 提示词",
+      "command": "close --tab 9a6b",
+      "exitCode": 0,
+      "durationMs": 6,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 89,
+      "section": "11 反馈",
+      "command": "tab new https://easywriting.<box-user>.heiyu.space/feedback",
+      "exitCode": 0,
+      "durationMs": 31,
+      "outputTail": "已创建新标签页: [5c94] https://easywriting.<box-user>.heiyu.space/feedback"
+    },
+    {
+      "line": 90,
+      "section": "11 反馈",
+      "command": "wait --selector #app>* --tab 5c94",
+      "exitCode": 0,
+      "durationMs": 1032,
+      "outputTail": "wait: 未满足（第 1 次） {\"met\":false}\nwait: 条件满足（selector，第 2 次，1s）"
+    },
+    {
+      "line": 91,
+      "section": "11 反馈",
+      "command": "console --fail-on error --tab 5c94",
+      "exitCode": 0,
+      "durationMs": 4,
+      "outputTail": "console gate: 通过（增量 0 条，无 error 违规）"
+    },
+    {
+      "line": 92,
+      "section": "11 反馈",
+      "command": "screenshot D:/7.code/easy-writing/verify/1.0.8/screenshots/cruise-11-feedback.png --tab 5c94",
+      "exitCode": 0,
+      "durationMs": 371,
+      "outputTail": "截图已保存: D:\\7.code\\easy-writing\\verify\\1.0.8\\screenshots\\cruise-11-feedback.png"
+    },
+    {
+      "line": 93,
+      "section": "11 反馈",
+      "command": "close --tab 5c94",
+      "exitCode": 0,
+      "durationMs": 8,
+      "outputTail": "已关闭标签页"
+    },
+    {
+      "line": 96,
+      "section": "S9 收尾",
+      "command": "gc",
+      "exitCode": 0,
+      "durationMs": 7,
+      "outputTail": "已回收 0 个标签页"
+    }
+  ]
+}

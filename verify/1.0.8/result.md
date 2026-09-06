@@ -36,3 +36,12 @@ powershell -ExecutionPolicy Bypass -File scripts/lazycat-install-lpk.ps1        
 powershell -ExecutionPolicy Bypass -File scripts/lazycat-postdeploy-verify.ps1    # 部署后验证
 cd /d/7.code/lazycat-skills && CAT_BROWSER_CLI="node D:/7.code/cat-browser/dist/cli.js" python scripts/intercept_check.py --app-repo D:/7.code/easy-writing --domain https://easywriting.vito.heiyu.space
 ```
+
+## 交付真实性审计与路由巡航（2026-09-07 补录，PASS）
+
+按 `lazycat-deploy-verify/references/delivery-acceptance.md` 执行视角 A（交付真实性）验收：
+
+- **交付审计**：`python <skills-repo>/scripts/lazycat_delivery_audit.py --app-repo . --fix-pattern "import fsSync"` → 32 项检查 blocking=0（V0 工件核账 / V1 瘦包 tar 独立复算 / V2 代码抽检 / V3 探活 / V4 门禁复核 / V5 远程对账（review 18401 本地-远程 SHA 逐字段一致）/ V6 视觉抽检）。报告见 `audit/audit-report.json`。
+- **签核清单**：V2 四项（uid 隔离/防穿越/fsSync 修复/diff 范围）+ V6 七张截图，全部 PASS，记录见 `audit/signoffs.md`。
+- **路由巡航**：`cruise.flow` 11 路由段式剧本（每段 tab new → wait → console --fail-on error → screenshot）经 cat-browser run 执行 59/59 步全绿，脱敏报告见 `audit/cruise-flow-report.json`，逐页截图 `screenshots/cruise-*.png`。
+- **审计发现交付债已清偿**：删除 `store-assets/screenshots$NAME.png`（变量残留误提交）；`lazycat/lpk-store/` 入 .gitignore 并移出 git 跟踪（磁盘文件保留，SHA 不变）。遗留观察（changelogs 缺失、en 简介混语）见 `audit/signoffs.md`，随下版本资料更新处理。

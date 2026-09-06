@@ -1,0 +1,413 @@
+{
+  "schema": "lazycat-delivery-audit/v1",
+  "generated_at": "2026-09-06T09:24:29+08:00",
+  "app_repo": "D:\\7.code\\easy-writing",
+  "package": "cloud.lazycat.app.easywriting",
+  "version": "1.0.8",
+  "domain": "https://easywriting.<box-user>.heiyu.space",
+  "submitted_locally": true,
+  "summary": {
+    "ok": 21,
+    "blocking": 0,
+    "warning": 4,
+    "info": 6,
+    "skip": 1,
+    "checks_total": 32
+  },
+  "artifacts": {
+    "dev_lpk": {
+      "path": "D:\\7.code\\easy-writing\\lazycat\\lpk\\cloud.lazycat.app.easywriting-v1.0.8.lpk",
+      "size": 404870656
+    },
+    "store_lpk": {
+      "path": "D:\\7.code\\easy-writing\\lazycat\\lpk-store\\cloud.lazycat.app.easywriting-v1.0.8.lpk",
+      "size": 175616,
+      "sha256": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5"
+    }
+  },
+  "checks": [
+    {
+      "id": "v0.lpk-dev",
+      "status": "ok",
+      "title": "dev LPK 在位",
+      "detail": "cloud.lazycat.app.easywriting-v1.0.8.lpk，404870656 字节",
+      "hint": ""
+    },
+    {
+      "id": "v0.lpk-store",
+      "status": "ok",
+      "title": "store 瘦包在位",
+      "detail": "cloud.lazycat.app.easywriting-v1.0.8.lpk，175616 字节，sha256 前 16 = 3eacba0a2d7ad9e4",
+      "hint": ""
+    },
+    {
+      "id": "v0.verify-evidence",
+      "status": "ok",
+      "title": "验证证据包布局完整（报告 + 中文截图）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v0.result-md",
+      "status": "ok",
+      "title": "result.md 含结论 PASS 行",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v0.human-review-chain",
+      "status": "ok",
+      "title": "human-review 链产物齐全（4/4）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v0.git-clean",
+      "status": "warning",
+      "title": "工作区有 12 处未提交改动",
+      "detail": "?? verify/1.0.8/cruise.flow；?? verify/1.0.8/screenshots/cruise-01-home.png；?? verify/1.0.8/screenshots/cruise-02-novel.png；?? verify/1.0.8/screenshots/cruise-03-mybooks.png；?? verify/1.0.8/screenshots/cruise-04-workflow.png",
+      "hint": "交付应已全部提交"
+    },
+    {
+      "id": "v0.git-hygiene",
+      "status": "warning",
+      "title": "跟踪文件名含 '$'（变量未展开残留）",
+      "detail": "store-assets/screenshots$NAME.png",
+      "hint": "PowerShell 单引号/拼接错误产物，删除并提交"
+    },
+    {
+      "id": "v0.git-hygiene-lpk",
+      "status": "warning",
+      "title": "LPK 二进制被提交进 git",
+      "detail": "lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.8.lpk",
+      "hint": "LPK 应 gitignore，产物不入库"
+    },
+    {
+      "id": "v1.lpk-no-embedded-images",
+      "status": "ok",
+      "title": "瘦包无内嵌镜像",
+      "detail": "tar 成员：['icon.png', 'manifest.yml', 'package.yml']",
+      "hint": ""
+    },
+    {
+      "id": "v1.lpk-registry-ref",
+      "status": "ok",
+      "title": "镜像引用走官方 registry",
+      "detail": "registry.lazycat.cloud/u87691755/ew394a48/easywriting-server:490d4bba6614b499",
+      "hint": ""
+    },
+    {
+      "id": "v1.lpk-no-embed-key",
+      "status": "ok",
+      "title": "manifest 无 embed: 段",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v1.pkg-license",
+      "status": "ok",
+      "title": "package.yml 声明 license",
+      "detail": "AGPL-3.0-only",
+      "hint": ""
+    },
+    {
+      "id": "v1.pkg-platforms",
+      "status": "ok",
+      "title": "unsupported_platforms 显式声明",
+      "detail": "['android', 'ios']",
+      "hint": ""
+    },
+    {
+      "id": "v1.pkg-permissions",
+      "status": "ok",
+      "title": "permissions.required 声明在位",
+      "detail": [
+        "net.internet",
+        "document.private"
+      ],
+      "hint": ""
+    },
+    {
+      "id": "v1.manifest-env-placeholders",
+      "status": "ok",
+      "title": "manifest environment 无占位值",
+      "detail": "",
+      "hint": "占位环境变量送审会被拒（store-publish.md 送审功能可用性硬前置）"
+    },
+    {
+      "id": "v2.uid-isolation",
+      "status": "info",
+      "title": "[签核] 用户隔离：uid 只取网关注入的 X-HC-User-ID",
+      "detail": "3 处定位已记录",
+      "hint": "确认：uid 来自请求头而非用户可控参数；对 uid 做长度/斜杠/'..' 校验；所有路径拼接都以 <root>/<uid>/ 为前缀，不列出其他用户目录"
+    },
+    {
+      "id": "v2.traversal-guard",
+      "status": "info",
+      "title": "[签核] 防路径穿越：规范化 + 分段拒绝 + 前缀断言",
+      "detail": "11 处定位已记录",
+      "hint": "确认：用户可控路径经 normalize 后逐段拒绝空段/'.'/'..'；拼接结果做 startsWith(userRoot) 前缀断言；绝对路径被拒"
+    },
+    {
+      "id": "v2.claimed-fix",
+      "status": "info",
+      "title": "[签核] 声称修复核验：import fsSync",
+      "detail": "1 处定位已记录",
+      "hint": "对照会话声称的修复（如 fsSync 导入），确认修复真实在码且无同类残留"
+    },
+    {
+      "id": "v2.diff-scope",
+      "status": "info",
+      "title": "最近 lazycat/ 提交（未给 --base-ref，仅列出）",
+      "detail": "f26daf7 chore(store): v1.0.8 上架送审资料与 store lane 构建文件\n40fae79 feat: 移植懒猫微服 Web 版：同源代理/服务端渲染抓取/懒猫网盘文件拦截",
+      "hint": ""
+    },
+    {
+      "id": "v3.entry-auth",
+      "status": "ok",
+      "title": "入口 307 跳微服登录（鉴权层正常）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v3.health",
+      "status": "info",
+      "title": "/api/health 在鉴权后（307），属正常形态",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v4.intercept-report",
+      "status": "ok",
+      "title": "intercept 报告结构自洽且 blocking=0",
+      "detail": "warning 项：['L2.6']",
+      "hint": "warning 项须逐一确认为已知豁免（如 L2.6 入口在弹窗内）"
+    },
+    {
+      "id": "v4.intercept-rerun",
+      "status": "skip",
+      "title": "未指定 --rerun-intercept（默认只核报告不重跑）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v5.review-presence",
+      "status": "ok",
+      "title": "远程 review 在位（id=18401）",
+      "detail": "1 条记录，最新 updated 2026-09-06T00:44:51.589Z",
+      "hint": ""
+    },
+    {
+      "id": "v5.field-reconcile",
+      "status": "ok",
+      "title": "本地/远程版本与包哈希对账一致",
+      "detail": "version=1.0.8 sha16=3eacba0a2d7ad9e4",
+      "hint": ""
+    },
+    {
+      "id": "v5.review-status",
+      "status": "ok",
+      "title": "审核状态：待人工审核（status=0）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v5.quality-observations",
+      "status": "warning",
+      "title": "送审质量观察项",
+      "detail": "远程 version.changelogs 缺失（人工审核常问更新内容）；本地 submit-result 为 VerifyOnly 演练——真实提交以远程 review 为准（本工具已按远程判定）；review_items still marked needs_review: app-info.zh, app-info.en, version.changelog",
+      "hint": "非阻断，但都是常见退回点，送审前尽量消化"
+    },
+    {
+      "id": "v6.shot-dimensions",
+      "status": "ok",
+      "title": "送审截图尺寸（4 张 PC）",
+      "detail": "pc-01-shelf.png=2566x1196；pc-02-writing.png=2566x1196；pc-03-rank.png=2566x1196；pc-04-models.png=2566x1196",
+      "hint": "商店 PC 截图宽度应 ≥1200"
+    },
+    {
+      "id": "v6.shot-duplicates",
+      "status": "ok",
+      "title": "两两 PSNR 检测通过（4 张互不重复）",
+      "detail": "",
+      "hint": ""
+    },
+    {
+      "id": "v6.zh-evidence",
+      "status": "ok",
+      "title": "中文界面证据（verify/screenshots/zh-*.png）",
+      "detail": "zh-01-shelf.png；zh-02-writing.png；zh-03-rank.png",
+      "hint": ""
+    },
+    {
+      "id": "v0.cruise-flow",
+      "status": "ok",
+      "title": "路由巡航剧本/报告在位",
+      "detail": "cruise.flow；cruise-flow-report.json",
+      "hint": ""
+    },
+    {
+      "id": "v6.content-signoff",
+      "status": "info",
+      "title": "[签核] 截图内容人工签核：真实 UI / 语言正确 / 非空白",
+      "detail": "4 处定位已记录",
+      "hint": "逐张确认：是应用真实界面（非设计稿/拼图）；界面语言与商店宣称一致；无敏感信息（真实域名用户段/账号名）；无错误弹窗或加载态定格"
+    }
+  ],
+  "signoffs": [
+    {
+      "layer": "V2",
+      "id": "v2.uid-isolation",
+      "title": "用户隔离：uid 只取网关注入的 X-HC-User-ID",
+      "locations": [
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 313,
+          "context": "//     权限挂载的应用文稿）。uid 一律取网关注入的 X-HC-User-ID："
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 322,
+          "context": "const uid = String(req.headers['x-hc-user-id'] || '').trim()"
+        },
+        {
+          "file": "src\\utils\\lazycat-drive.ts",
+          "line": 11,
+          "context": "* - 用户隔离在服务端按 X-HC-User-ID 完成，前端不传用户参数。"
+        }
+      ],
+      "instruction": "确认：uid 来自请求头而非用户可控参数；对 uid 做长度/斜杠/'..' 校验；所有路径拼接都以 <root>/<uid>/ 为前缀，不列出其他用户目录"
+    },
+    {
+      "layer": "V2",
+      "id": "v2.traversal-guard",
+      "title": "防路径穿越：规范化 + 分段拒绝 + 前缀断言",
+      "locations": [
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 110,
+          "context": "const relative = path.normalize(decoded).replace(/^([.][.][\\\\/])+/, '')"
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 113,
+          "context": "if (!resolved.startsWith(STATIC_DIR + path.sep) && resolved !== STATIC_DIR) {"
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 117,
+          "context": "const cacheImmutable = relative.startsWith(`assets${path.sep}`) || relative.startsWith('assets/')"
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 344,
+          "context": "const rel = path.normalize(String(url.searchParams.get('path') || '')).replace(/^([\\\\/])+/, '')"
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 352,
+          "context": "if (!target.startsWith(userRoot)) {"
+        },
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 479,
+          "context": "if (url.pathname.startsWith('/api/lazycat/')) {"
+        },
+        {
+          "file": "src\\storage\\local-ai-chat.ts",
+          "line": 74,
+          "context": "if (!text.startsWith('sessions:')) continue"
+        },
+        {
+          "file": "src\\storage\\local-ai-chat.ts",
+          "line": 136,
+          "context": "if (!text.startsWith('messages:')) continue"
+        },
+        {
+          "file": "src\\storage\\local-breakdown.ts",
+          "line": 221,
+          "context": "if (!text.startsWith('project:')) continue"
+        },
+        {
+          "file": "src\\storage\\local-rank-store.ts",
+          "line": 144,
+          "context": ".filter(key=*** key.startsWith(prefix))"
+        },
+        {
+          "file": "src\\storage\\local-workflow.ts",
+          "line": 97,
+          "context": "if (!text.startsWith('run:')) continue"
+        }
+      ],
+      "instruction": "确认：用户可控路径经 normalize 后逐段拒绝空段/'.'/'..'；拼接结果做 startsWith(userRoot) 前缀断言；绝对路径被拒"
+    },
+    {
+      "layer": "V2",
+      "id": "v2.claimed-fix",
+      "title": "声称修复核验：import fsSync",
+      "locations": [
+        {
+          "file": "lazycat\\server.mjs",
+          "line": 15,
+          "context": "import fsSync from 'node:fs'"
+        }
+      ],
+      "instruction": "对照会话声称的修复（如 fsSync 导入），确认修复真实在码且无同类残留"
+    },
+    {
+      "layer": "V6",
+      "id": "v6.content-signoff",
+      "title": "截图内容人工签核：真实 UI / 语言正确 / 非空白",
+      "locations": [
+        {
+          "file": "store-assets\\screenshots\\pc-01-shelf.png",
+          "line": 0,
+          "context": "(2566, 1196)"
+        },
+        {
+          "file": "store-assets\\screenshots\\pc-02-writing.png",
+          "line": 0,
+          "context": "(2566, 1196)"
+        },
+        {
+          "file": "store-assets\\screenshots\\pc-03-rank.png",
+          "line": 0,
+          "context": "(2566, 1196)"
+        },
+        {
+          "file": "store-assets\\screenshots\\pc-04-models.png",
+          "line": 0,
+          "context": "(2566, 1196)"
+        }
+      ],
+      "instruction": "逐张确认：是应用真实界面（非设计稿/拼图）；界面语言与商店宣称一致；无敏感信息（真实域名用户段/账号名）；无错误弹窗或加载态定格"
+    }
+  ],
+  "remote_reviews": {
+    "app_id": "6459",
+    "reviews": [
+      {
+        "review_id": 18401,
+        "status": "0 waiting (待审核)",
+        "created_at": "2026-09-06T00:44:51.589Z",
+        "updated_at": "2026-09-06T00:44:51.589Z",
+        "reason": null,
+        "zh_name": "易创",
+        "zh_support": "pc=True, mobile=False",
+        "zh_pc_screenshots": 4,
+        "zh_mobile_screenshots": 0,
+        "en_name": "Easy Writing",
+        "version_name": "1.0.8",
+        "version_pkg_hash": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+        "version_unsupported_platforms": [
+          "android",
+          "ios"
+        ],
+        "version_changelogs": null,
+        "zh_name_mojibake": false,
+        "en_name_mojibake": false
+      }
+    ],
+    "count": 1
+  }
+}
