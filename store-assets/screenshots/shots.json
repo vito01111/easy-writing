@@ -1,0 +1,64 @@
+{
+  "shots": [
+    {
+      "name": "pc-01-shelf",
+      "url": "https://easywriting.vito.heiyu.space/myBooks",
+      "wait": 10,
+      "mask": {
+        "preset": "pii",
+        "extra": [
+          {
+            "find": "[Vv]ito",
+            "replace": "Tester",
+            "regex": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "pc-02-writing",
+      "url": "https://easywriting.vito.heiyu.space/writing/-1788653303083001",
+      "wait": 10,
+      "mask": {
+        "preset": "pii",
+        "extra": [
+          {
+            "find": "[Vv]ito",
+            "replace": "Tester",
+            "regex": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "pc-03-rank",
+      "url": "https://easywriting.vito.heiyu.space/novelRank",
+      "wait": 12,
+      "mask": {
+        "preset": "pii",
+        "extra": [
+          {
+            "find": "[Vv]ito",
+            "replace": "Tester",
+            "regex": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "pc-04-models",
+      "url": "https://easywriting.vito.heiyu.space/aiModels",
+      "wait": 10,
+      "mask": {
+        "preset": "pii",
+        "extra": [
+          {
+            "find": "[Vv]ito",
+            "replace": "Tester",
+            "regex": true
+          }
+        ]
+      }
+    }
+  ]
+}

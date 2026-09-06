@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1",
+  "kind": "lazycat.store.review_apply_result",
+  "generated_at": "2026-09-06T08:43:37+08:00",
+  "ok": true,
+  "exit_code": 0,
+  "stage": "human_review",
+  "write_scope": "human_review",
+  "dry_run": false,
+  "allow_blocking_draft": false,
+  "review_pack_path": "D:\\7.code\\easy-writing\\store-assets\\human-review\\app-detail-review.json",
+  "store_submit_path": "D:\\7.code\\easy-writing\\store-assets\\store-submit.json",
+  "result_path": "D:\\7.code\\easy-writing\\store-assets\\human-review\\apply-result.json",
+  "backup_path": "",
+  "report_path": "",
+  "changed_paths": [
+    "/human_review/status",
+    "/human_review/decision",
+    "/human_review/reviewer",
+    "/human_review/reviewed_at",
+    "/human_review/notes"
+  ],
+  "summary": {
+    "package": "cloud.lazycat.app.easywriting",
+    "app_id": 6459,
+    "version": "1.0.8",
+    "lpk_sha256": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+    "support_pc": true,
+    "support_mobile": false,
+    "pc_screenshots": 4,
+    "mobile_screenshots": 0,
+    "unsupported_platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "review_pack_sha256_before": "ecf18b2689f790324996c03954d84340116136172c91b4a6af1db450af2ddf4c",
+  "review_pack_sha256_after": "9d402f4324cd4c1752d01156d36653270f0b881639ddbe9c4c9ab0b82ac7813c",
+  "store_submit_sha256_before": "ad85649449f1964395bd5ab967d8ba9b23ba1c60ca44cedc965b3f8dbacdd91d",
+  "store_submit_sha256_after": "ad85649449f1964395bd5ab967d8ba9b23ba1c60ca44cedc965b3f8dbacdd91d",
+  "warnings": [],
+  "process": {
+    "preflight_exit_code": 0,
+    "preflight_stdout_tail": "\n    \"lpk\": \"D:\\\\7.code\\\\easy-writing\\\\lazycat\\\\lpk-store\\\\cloud.lazycat.app.easywriting-v1.0.8.lpk\",\n    \"screenshots\": {\n      \"pc\": [\n        {\n          \"path\": \"D:\\\\7.code\\\\easy-writing\\\\store-assets\\\\screenshots\\\\pc-01-shelf.png\",\n          \"format\": \"png\",\n          \"width\": 2566,\n          \"height\": 1196,\n          \"size\": 1214774\n        },\n        {\n          \"path\": \"D:\\\\7.code\\\\easy-writing\\\\store-assets\\\\screenshots\\\\pc-02-writing.png\",\n          \"format\": \"png\",\n          \"width\": 2566,\n          \"height\": 1196,\n          \"size\": 1530771\n        },\n        {\n          \"path\": \"D:\\\\7.code\\\\easy-writing\\\\store-assets\\\\screenshots\\\\pc-03-rank.png\",\n          \"format\": \"png\",\n          \"width\": 2566,\n          \"height\": 1196,\n          \"size\": 963176\n        },\n        {\n          \"path\": \"D:\\\\7.code\\\\easy-writing\\\\store-assets\\\\screenshots\\\\pc-04-models.png\",\n          \"format\": \"png\",\n          \"width\": 2566,\n          \"height\": 1196,\n          \"size\": 1049761\n        }\n      ],\n      \"mobile\": []\n    }\n  },\n  \"payload\": {\n    \"infos\": [\n      {\n        \"id\": 0,\n        \"language\": \"zh\",\n        \"name\": \"\\u6613\\u521b\",\n        \"brief\": \"\\u7eaf\\u672c\\u5730\\u4f18\\u5148\\u7684\\u5f00\\u6e90 AI \\u7f51\\u6587\\u5199\\u4f5c\\u8f6f\\u4ef6\\uff1a\\u5c0f\\u8bf4\\u521b\\u4f5c\\u3001BYOK \\u76f4\\u8fde AI\\u3001\\u81ea\\u5b9a\\u4e49\\u63d0\\u793a\\u8bcd\",\n        \"keywords\": \"AI\\u5199\\u4f5c, \\u7f51\\u6587, \\u5c0f\\u8bf4, \\u5199\\u4f5c\\u5de5\\u5177, \\u7801\\u5b57\\u7edf\\u8ba1\",\n        \"description\": \"\\u6613\\u521b\\uff08easy-writing\\uff09\\u662f\\u5f00\\u6e90 AGPL-3.0 \\u7684\\u672c\\u5730\\u4f18\\u5148 AI \\u7f51\\u6587\\u5199\\u4f5c\\u8f6f\\u4ef6\\uff0c\\u7531\\u957f\\u671f\\u7ebf\\u4e0a\\u8fd0\\u8425\\u7684\\u5199\\u4f5c\\u5e73\\u53f0\\u5ba2\\u6237\\u7aef\\u6539\\u9020\\u800c\\u6765\\u3002\\n\\n\\u539f\\u9879\\u76ee\\u529f\\u80fd\\uff1aTipTap \\u5bcc\\u6587\\u672c\\u5199\\u4f5c\\u53f0\\uff0c\\u5377/\\u7ae0\\u76ee\\u5f55\\u6811\\u3001\\u8fb9\\u5199\\u8fb9\\u5b58\\u3001\\u6bcf\\u7ae0\\u81ea\\u52a8\\u4fdd\\u7559\\u5386\\u53f2\\u7248\\u672c\\uff1b\\u4e66\\u67b6\\u591a\\u4f5c\\u54c1\\u7ba1\\u7406\\uff08\\u5206\\u7ec4/\\u5c01\\u9762/TXT\\u00b7JSON \\u5bfc\\u5165\\u5bfc\\u51fa/\\u56de\\u6536\\u7ad9\\uff09\\uff1b\\u53c2\\u8003\\u8d44\\u6599\\u4e94\\u4ef6\\u5957\\uff08\\u5927\\u7eb2\\u3001\\u89d2\\u8272\\u5173\\u7cfb\\u56fe\\u3001\\u8bbe\\u5b9a\\u3001\\u65f6\\u95f4\\u7ebf\\u3001\\u6545\\u4e8b\\u7ebf\\uff09\\uff1b\\u7801\\u5b57\\u7edf\\u8ba1\\u4e0e\\u7075\\u611f\\u901f\\u8bb0\\uff1bAI \\u8f85\\u52a9\\u652f\\u6301 BYOK \\u76f4\\u8fde DeepSeek\\u3001\\u901a\\u4e49\\u5343\\u95ee\\u3001\\u667a\\u8c31\\u3001OpenRouter \\u7b49 OpenAI \\u517c\\u5bb9\\u6e20\\u9053\\u53ca\\u672c\\u5730 Ollama\\uff0c\\u63d0\\u4f9b\\u5212\\u8bcd\\u6da6\\u8272\\u3001\\u6d41\\u5f0f\\u7eed\\u5199\\u3001\\u5999\\u7b14\\u5bf9\\u8bdd\\u3001\\u5de5\\u4f5c\\u6d41\\u4e00\\u952e\\u5efa\\u4e66\\u3001AI \\u5c01\\u9762\\u4e0e\\u53d6\\u540d\\u5668\\uff1b\\u699c\\u5355\\u98ce\\u5411\\u5185\\u7f6e\\u756a\\u8304/\\u8d77\\u70b9/\\u4e03\\u732b\\u9002\\u914d\\u5668\\u3002\\n\\n\\u61d2\\u732b\\u7248\\u65b0\\u589e\\uff1a\\u7f51\\u9875\\u7aef\\u5f00\\u7bb1\\u5373\\u7528\\uff0c\\u6570\\u636e\\u6309\\u6d4f\\u89c8\\u5668\\u9694\\u79bb\\u5b58\\u50a8\\uff1b\\u5bfc\\u51fa/\\u5bfc\\u5165\\u63a5\\u5165\\u61d2\\u732b\\u7f51\\u76d8\\uff08\\u4fdd\\u5b58\\u5230\\u61d2\\u732b\\u7f51\\u76d8\\u3001\\u4ece\\u61d2\\u732b\\u7f51\\u76d8\\u6253\\u5f00\\uff0c\\u6309\\u5fae\\u670d\\u7528\\u6237\\u9694\\u79bb\\uff09\\uff1b\\u699c\\u5355\\u6293\\u53d6\\u7ecf\\u670d\\u52a1\\u7aef\\u771f\\u5b9e\\u6d4f\\u89c8\\u5668\\u6e32\\u67d3\\uff0c\\u8d77\\u70b9/\\u756a\\u8304/\\u4e03\\u732b\\u5728\\u7f51\\u9875\\u7aef\\u53ef\\u7528\\uff1bBYOK \\u5bc6\\u94a5\\u4ec5\\u4fdd\\u5b58\\u5728\\u6d4f\\u89c8\\u5668\\u672c\\u5730\\uff0c\\u4ee3\\u7406\\u8f6c\\u53d1\\u4e0d\\u843d\\u76d8\\u3002\",\n        \"changelog\": \"\\u9996\\u6b21\\u4e0a\\u67b6\\uff1a\\u4e0a\\u6e38 v1.0.6 \\u529f\\u80fd\\u5168\\u91cf\\u79fb\\u690d\\uff1b\\u65b0\\u589e\\u61d2\\u732b\\u7f51\\u76d8\\u6587\\u4ef6\\u62e6\\u622a\\uff08\\u5bfc\\u5165/\\u5bfc\\u51fa\\uff09\\u3001\\u670d\\u52a1\\u7aef\\u6e32\\u67d3\\u699c\\u5355\\u6293\\u53d6\\uff08\\u8d77\\u70b9/\\u756a\\u8304/\\u4e03\\u732b\\uff09\\u3001\\u540c\\u6e90 AI \\u4ee3\\u7406\\uff08\\u5bc6\\u94a5\\u4ec5\\u5b58\\u6d4f\\u89c8\\u5668\\u672c\\u5730\\uff09\\u3002\",\n        \"source\": \"https://github.com/yilujian/easy-writing\",\n        \"source_author\": \"yilujian\",\n        \"is_original\": false,\n        \"support_pc\": true,\n        \"support_mobile\": false,\n        \"screenshot_pc_paths\": [],\n        \"screenshot_mobile_paths\": []\n      },\n      {\n        \"id\": 0,\n        \"language\": \"en\",\n        \"name\": \"Easy Writing\",\n        \"brief\": \"Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts\",\n        \"keywords\": \"AI writing, novel, web novel, writing tool, word count\",\n        \"description\": \"Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\\n\\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and\\u7075\\u611f notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\\n\\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.\",\n        \"changelog\": \"First release: full port of upstream v1.0.6; adds LazyCat Drive file interception (import/export), server-rendered rank crawling (Qidian/Fanqie/Qimao) and same-origin AI proxy (keys stay in browser).\",\n        \"source\": \"https://github.com/yilujian/easy-writing\",\n        \"source_author\": \"yilujian\",\n        \"is_original\": false,\n        \"support_pc\": true,\n        \"support_mobile\": false,\n        \"screenshot_pc_paths\": [],\n        \"screenshot_mobile_paths\": []\n      }\n    ]\n  }\n}\n",
+    "preflight_stderr_tail": "",
+    "review_pack_exit_code": null,
+    "review_pack_stdout_tail": "",
+    "review_pack_stderr_tail": ""
+  },
+  "error": null
+}

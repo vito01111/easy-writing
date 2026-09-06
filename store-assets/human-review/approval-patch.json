@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1",
+  "kind": "lazycat.store.review_apply_request",
+  "changes": [
+    {
+      "op": "set",
+      "path": "/human_review/status",
+      "value": "approved"
+    },
+    {
+      "op": "set",
+      "path": "/human_review/decision",
+      "value": "submit"
+    },
+    {
+      "op": "set",
+      "path": "/human_review/reviewer",
+      "value": "vito01111"
+    },
+    {
+      "op": "set",
+      "path": "/human_review/reviewed_at",
+      "value": "2026-09-06T08:20:00+08:00"
+    },
+    {
+      "op": "set",
+      "path": "/human_review/notes",
+      "value": "已核对应用详情、中英文案、4 张 PC 截图、平台支持（不支持移动端已在 LPK 声明）、LPK SHA 与文件拦截验收证据（intercept_check blocking=0）。"
+    }
+  ]
+}

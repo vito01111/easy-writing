@@ -1,0 +1,6 @@
+# Store lane：外置 runtime 镜像（registry.lazycat.cloud），产出瘦包。
+# 与 dev lane（lzc-build.yml 内嵌 embed:server）并存；送审一律用本文件构建。
+# 镜像引用映射见 store-assets/image-release-map.json。
+manifest: ./lzc-manifest.store.yml
+pkgout: ./lpk-store
+icon: ./icon.png

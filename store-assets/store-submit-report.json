@@ -1,0 +1,459 @@
+﻿{
+    "generated_at":  "2026-09-06T08:45:27",
+    "started_at":  "2026-09-06T08:45:21",
+    "mode":  "verify-only",
+    "outcome":  "ok",
+    "preflight":  {
+                      "summary":  {
+                                      "app_id":  6459,
+                                      "package":  "cloud.lazycat.app.easywriting",
+                                      "lpk_path":  "D:/7.code/easy-writing/lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.8.lpk",
+                                      "lpk_size":  175616,
+                                      "lpk_sha256":  "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+                                      "package_version":  "1.0.8",
+                                      "package_license":  "AGPL-3.0",
+                                      "upstream_licenses":  [
+                                                                {
+                                                                    "source":  "store-submit",
+                                                                    "license":  "AGPL-3.0"
+                                                                },
+                                                                {
+                                                                    "source":  "LICENSE",
+                                                                    "license":  "AGPL-3.0"
+                                                                }
+                                                            ],
+                                      "icon_present":  true,
+                                      "support_pc":  true,
+                                      "support_mobile":  false,
+                                      "unsupported_platforms":  [
+                                                                    "android",
+                                                                    "ios"
+                                                                ],
+                                      "has_images_lock":  false,
+                                      "embedded_image_members":  0,
+                                      "has_embed_refs":  false,
+                                      "verified_pc":  true,
+                                      "verified_mobile":  false,
+                                      "pc_screenshots":  4,
+                                      "mobile_screenshots":  0,
+                                      "is_original":  false,
+                                      "source":  "https://github.com/yilujian/easy-writing",
+                                      "source_author":  "yilujian",
+                                      "review_feedback_count":  0,
+                                      "review_feedback_resolved":  0,
+                                      "review_feedback_open":  0,
+                                      "review_feedback_categories":  [
+
+                                                                     ],
+                                      "lane":  {
+                                                   "dockerfiles_scanned":  0
+                                               },
+                                      "icon_path":  "D:/7.code/easy-writing/icon.png",
+                                      "icon_bytes":  170934,
+                                      "icon_dimensions":  "512x512",
+                                      "icon_sha256":  "796db68b2a957acc3fad039f48d92db3a3ec5b49231e8800092480b5d285949e",
+                                      "verify_evidence":  {
+                                                              "version":  "1.0.8",
+                                                              "dir":  "D:/7.code/easy-writing/verify/1.0.8",
+                                                              "assets":  3,
+                                                              "zh_screenshots":  3
+                                                          }
+                                  },
+                      "status":  "ok",
+                      "checks":  [
+                                     {
+                                         "id":  "lpk:license:upstream-match",
+                                         "status":  "ok",
+                                         "title":  "LPK manifest license matches upstream LICENSE evidence",
+                                         "detail":  "package.yml=AGPL-3.0; upstream=store-submit:AGPL-3.0, LICENSE:AGPL-3.0",
+                                         "hint":  ""
+                                     },
+                                     {
+                                         "id":  "verify:evidence-result",
+                                         "status":  "ok",
+                                         "title":  "Real-domain verification PASS recorded for 1.0.8",
+                                         "detail":  "",
+                                         "hint":  ""
+                                     },
+                                     {
+                                         "id":  "store-submit:shape",
+                                         "status":  "ok",
+                                         "title":  "store-submit.json has the required submission shape",
+                                         "detail":  "",
+                                         "hint":  ""
+                                     },
+                                     {
+                                         "id":  "lpk:sha256",
+                                         "status":  "ok",
+                                         "title":  "LPK SHA256 computed",
+                                         "detail":  "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+                                         "hint":  ""
+                                     }
+                                 ]
+                  },
+    "remote":  {
+                   "app_detail_seen":  true,
+                   "checks_in_reviews_items":  [
+                                                   {
+                                                       "id":  18401,
+                                                       "created_at":  "2026-09-06T00:44:51.589Z",
+                                                       "updated_at":  "2026-09-06T00:44:51.589Z",
+                                                       "status":  0,
+                                                       "create_user_id":  665,
+                                                       "version_id":  12097,
+                                                       "resource_id":  15911,
+                                                       "app":  {
+                                                                   "id":  6459,
+                                                                   "created_at":  "2026-09-05T23:59:33.343Z",
+                                                                   "package":  "cloud.lazycat.app.easywriting",
+                                                                   "status":  -2,
+                                                                   "info":  {
+                                                                                "id":  22792,
+                                                                                "created_at":  "2026-09-06T00:44:51.454Z",
+                                                                                "updated_at":  "2026-09-06T00:44:51.454Z",
+                                                                                "app_id":  6459,
+                                                                                "create_user_id":  665,
+                                                                                "language":  "en",
+                                                                                "name":  "Easy Writing",
+                                                                                "brief":  "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
+                                                                                "description":  "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
+                                                                                "keywords":  "AI writing, novel, web novel, writing tool, word count",
+                                                                                "source":  "https://github.com/yilujian/easy-writing",
+                                                                                "source_author":  "yilujian",
+                                                                                "support_pc":  true,
+                                                                                "support_mobile":  false,
+                                                                                "screenshot_pc_paths":  [
+                                                                                                            "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                            "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                            "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                            "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                                        ],
+                                                                                "screenshot_mobile_paths":  [
+
+                                                                                                            ]
+                                                                            }
+                                                               },
+                                                       "package":  "cloud.lazycat.app.easywriting",
+                                                       "info":  {
+                                                                    "id":  22792,
+                                                                    "created_at":  "2026-09-06T00:44:51.454Z",
+                                                                    "updated_at":  "2026-09-06T00:44:51.454Z",
+                                                                    "app_id":  6459,
+                                                                    "create_user_id":  665,
+                                                                    "language":  "en",
+                                                                    "name":  "Easy Writing",
+                                                                    "brief":  "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
+                                                                    "description":  "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
+                                                                    "keywords":  "AI writing, novel, web novel, writing tool, word count",
+                                                                    "source":  "https://github.com/yilujian/easy-writing",
+                                                                    "source_author":  "yilujian",
+                                                                    "support_pc":  true,
+                                                                    "support_mobile":  false,
+                                                                    "screenshot_pc_paths":  [
+                                                                                                "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                            ],
+                                                                    "screenshot_mobile_paths":  [
+
+                                                                                                ]
+                                                                },
+                                                       "review_developer_name":  "Vito",
+                                                       "review_version":  "1.0.8",
+                                                       "review_source":  "https://github.com/yilujian/easy-writing"
+                                                   }
+                                               ],
+                   "review_items":  [
+                                        {
+                                            "id":  18401,
+                                            "created_at":  "2026-09-06T00:44:51.589Z",
+                                            "updated_at":  "2026-09-06T00:44:51.589Z",
+                                            "status":  0,
+                                            "operation_type":  2,
+                                            "app_id":  6459,
+                                            "create_user_id":  665,
+                                            "review_user_id":  0,
+                                            "resource_id":  15911,
+                                            "version_id":  12097,
+                                            "reason":  "",
+                                            "attachment_paths":  null,
+                                            "is_incentive":  0,
+                                            "app":  null,
+                                            "create_user":  null,
+                                            "review_user":  null,
+                                            "resource":  {
+                                                             "id":  15911,
+                                                             "created_at":  "2026-09-06T00:44:51.454Z",
+                                                             "updated_at":  "2026-09-06T00:44:51.455Z",
+                                                             "app_id":  6459,
+                                                             "create_user_id":  665,
+                                                             "info_data":  {
+                                                                               "en":  {
+                                                                                          "id":  22792,
+                                                                                          "created_at":  "2026-09-06T00:44:51.454Z",
+                                                                                          "updated_at":  "2026-09-06T00:44:51.454Z",
+                                                                                          "app_id":  6459,
+                                                                                          "create_user_id":  665,
+                                                                                          "language":  "en",
+                                                                                          "name":  "Easy Writing",
+                                                                                          "brief":  "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
+                                                                                          "description":  "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
+                                                                                          "keywords":  "AI writing, novel, web novel, writing tool, word count",
+                                                                                          "source":  "https://github.com/yilujian/easy-writing",
+                                                                                          "source_author":  "yilujian",
+                                                                                          "support_pc":  true,
+                                                                                          "support_mobile":  false,
+                                                                                          "screenshot_pc_paths":  [
+                                                                                                                      "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                                      "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                                      "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                                      "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                                                  ],
+                                                                                          "screenshot_mobile_paths":  [
+
+                                                                                                                      ]
+                                                                                      },
+                                                                               "zh":  {
+                                                                                          "id":  22791,
+                                                                                          "created_at":  "2026-09-06T00:44:51.453Z",
+                                                                                          "updated_at":  "2026-09-06T00:44:51.453Z",
+                                                                                          "app_id":  6459,
+                                                                                          "create_user_id":  665,
+                                                                                          "language":  "zh",
+                                                                                          "name":  "易创",
+                                                                                          "brief":  "纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词",
+                                                                                          "description":  "易创（easy-writing）是开源 AGPL-3.0 的本地优先 AI 网文写作软件，由长期线上运营的写作平台客户端改造而来。\n\n原项目功能：TipTap 富文本写作台，卷/章目录树、边写边存、每章自动保留历史版本；书架多作品管理（分组/封面/TXT·JSON 导入导出/回收站）；参考资料五件套（大纲、角色关系图、设定、时间线、故事线）；码字统计与灵感速记；AI 辅助支持 BYOK 直连 DeepSeek、通义千问、智谱、OpenRouter 等 OpenAI 兼容渠道及本地 Ollama，提供划词润色、流式续写、妙笔对话、工作流一键建书、AI 封面与取名器；榜单风向内置番茄/起点/七猫适配器。\n\n懒猫版新增：网页端开箱即用，数据按浏览器隔离存储；导出/导入接入懒猫网盘（保存到懒猫网盘、从懒猫网盘打开，按微服用户隔离）；榜单抓取经服务端真实浏览器渲染，起点/番茄/七猫在网页端可用；BYOK 密钥仅保存在浏览器本地，代理转发不落盘。",
+                                                                                          "keywords":  "AI写作, 网文, 小说, 写作工具, 码字统计",
+                                                                                          "source":  "https://github.com/yilujian/easy-writing",
+                                                                                          "source_author":  "yilujian",
+                                                                                          "support_pc":  true,
+                                                                                          "support_mobile":  false,
+                                                                                          "screenshot_pc_paths":  [
+                                                                                                                      "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                                      "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                                      "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                                      "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                                                  ],
+                                                                                          "screenshot_mobile_paths":  [
+
+                                                                                                                      ]
+                                                                                      }
+                                                                           }
+                                                         },
+                                            "version":  {
+                                                            "id":  12097,
+                                                            "created_at":  "2026-09-06T00:44:51.561Z",
+                                                            "updated_at":  "2026-09-06T00:44:51.561Z",
+                                                            "app_id":  6459,
+                                                            "create_user_id":  665,
+                                                            "create_user":  null,
+                                                            "package":  "cloud.lazycat.app.easywriting",
+                                                            "name":  "1.0.8",
+                                                            "pkg_hash":  "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+                                                            "pkg_path":  "864efc1d-58fa-4c7a-8982-01b785aef6cd.lpk",
+                                                            "icon_path":  "appstore/lpks/review/a779cd15-473a-42a6-b2e7-6ce9bf4e0f96_icon.png",
+                                                            "icon_hash":  "e2c031e6f84ff1d991465e5d9ca5fe8a",
+                                                            "unsupported_platforms":  [
+                                                                                          "android",
+                                                                                          "ios"
+                                                                                      ],
+                                                            "min_os_version":  "1.5.0",
+                                                            "lpk_size":  175616,
+                                                            "image_size":  404667500,
+                                                            "lpk_manifest":  "package: cloud.lazycat.app.easywriting\nversion: 1.0.8\nname: 易创\ndescription: 纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词，数据存于浏览器本地\nauthor: yilujian\nlicense: AGPL-3.0-only\nhomepage: https://github.com/yilujian/easy-writing\nmin_os_version: 1.5.0\nunsupported_platforms:\n  - android\n  - ios\nlocales:\n  en-US:\n    description: \u0027Open-source local-first AI novel writing app: BYOK direct connection, custom prompts and browser-local data storage\u0027\n    name: Easy Writing\n  zh-CN:\n    description: 纯本地、开源的 AI 网文写作软件：小说创作、BYOK 直连、自定义提示词与本地数据存储\n    name: 易创\npermissions:\n  required:\n    - net.internet\n    - document.private\n  optional:\n    - net.lan\nformat: v2\nis_app: true\nimages:\n  # 来源: services.server.image\n  - registry.lazycat.cloud/u87691755/ew394a48/easywriting-server:490d4bba6614b499\n",
+                                                            "changelogs":  {
+
+                                                                           }
+                                                        },
+                                            "category_list":  null,
+                                            "comments":  null
+                                        }
+                                    ],
+                   "app_list_items":  [
+                                          {
+                                              "id":  6459,
+                                              "created_at":  "2026-09-05T23:59:33.343Z",
+                                              "updated_at":  "2026-09-05T23:59:34.084Z",
+                                              "package":  "cloud.lazycat.app.easywriting",
+                                              "status":  -2,
+                                              "create_user_id":  665,
+                                              "resource_id":  15910,
+                                              "version_id":  0,
+                                              "kind_ids":  "",
+                                              "create_user":  {
+                                                                  "id":  665,
+                                                                  "username":  "u87691755",
+                                                                  "phone":  "",
+                                                                  "phoneVerified":  true,
+                                                                  "email":  "",
+                                                                  "emailVerified":  true,
+                                                                  "nickname":  "Vito",
+                                                                  "avatar":  "",
+                                                                  "backgroundImage":  "",
+                                                                  "password":  "",
+                                                                  "homePage":  "",
+                                                                  "description":  "跨境电商从业者",
+                                                                  "score":  0,
+                                                                  "status":  0,
+                                                                  "topicCount":  0,
+                                                                  "commentCount":  0,
+                                                                  "followCount":  0,
+                                                                  "fansCount":  0,
+                                                                  "roles":  "",
+                                                                  "forbiddenEndTime":  0,
+                                                                  "createTime":  1752402401137,
+                                                                  "updateTime":  1752402401137,
+                                                                  "githubUsername":  "vito01111"
+                                                              },
+                                              "resource":  {
+                                                               "id":  15910,
+                                                               "created_at":  "2026-09-05T23:59:33.781Z",
+                                                               "updated_at":  "2026-09-05T23:59:33.781Z",
+                                                               "app_id":  6459,
+                                                               "create_user_id":  665,
+                                                               "info_data":  {
+                                                                                 "zh":  {
+                                                                                            "id":  22790,
+                                                                                            "created_at":  "2026-09-05T23:59:33.78Z",
+                                                                                            "updated_at":  "2026-09-05T23:59:33.78Z",
+                                                                                            "app_id":  6459,
+                                                                                            "create_user_id":  665,
+                                                                                            "language":  "zh",
+                                                                                            "name":  "易创",
+                                                                                            "brief":  "",
+                                                                                            "description":  "",
+                                                                                            "keywords":  "",
+                                                                                            "source":  "",
+                                                                                            "source_author":  "",
+                                                                                            "support_pc":  false,
+                                                                                            "support_mobile":  false,
+                                                                                            "screenshot_pc_paths":  null,
+                                                                                            "screenshot_mobile_paths":  null
+                                                                                        }
+                                                                             }
+                                                           },
+                                              "version":  null,
+                                              "category_list":  [
+
+                                                                ],
+                                              "likes":  0,
+                                              "comment_count":  0,
+                                              "counting":  0,
+                                              "rating":  0,
+                                              "remind_count":  0,
+                                              "rating_detail":  null,
+                                              "version_updated_at":  "0001-01-01T00:00:00Z",
+                                              "first_audit_at":  null,
+                                              "is_original":  true,
+                                              "timezone_at_create":  "",
+                                              "developer":  null,
+                                              "developer_ids":  "",
+                                              "review":  {
+                                                             "id":  18401,
+                                                             "created_at":  "2026-09-06T00:44:51.589Z",
+                                                             "updated_at":  "2026-09-06T00:44:51.589Z",
+                                                             "status":  0,
+                                                             "operation_type":  2,
+                                                             "app_id":  6459,
+                                                             "create_user_id":  665,
+                                                             "review_user_id":  0,
+                                                             "resource_id":  15911,
+                                                             "version_id":  12097,
+                                                             "reason":  "",
+                                                             "attachment_paths":  null,
+                                                             "is_incentive":  0,
+                                                             "app":  null,
+                                                             "create_user":  null,
+                                                             "review_user":  null,
+                                                             "resource":  {
+                                                                              "id":  15911,
+                                                                              "created_at":  "2026-09-06T00:44:51.454Z",
+                                                                              "updated_at":  "2026-09-06T00:44:51.455Z",
+                                                                              "app_id":  6459,
+                                                                              "create_user_id":  665,
+                                                                              "info_data":  {
+                                                                                                "en":  {
+                                                                                                           "id":  22792,
+                                                                                                           "created_at":  "2026-09-06T00:44:51.454Z",
+                                                                                                           "updated_at":  "2026-09-06T00:44:51.454Z",
+                                                                                                           "app_id":  6459,
+                                                                                                           "create_user_id":  665,
+                                                                                                           "language":  "en",
+                                                                                                           "name":  "Easy Writing",
+                                                                                                           "brief":  "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
+                                                                                                           "description":  "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
+                                                                                                           "keywords":  "AI writing, novel, web novel, writing tool, word count",
+                                                                                                           "source":  "https://github.com/yilujian/easy-writing",
+                                                                                                           "source_author":  "yilujian",
+                                                                                                           "support_pc":  true,
+                                                                                                           "support_mobile":  false,
+                                                                                                           "screenshot_pc_paths":  [
+                                                                                                                                       "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                                                       "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                                                       "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                                                       "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                                                                   ],
+                                                                                                           "screenshot_mobile_paths":  [
+
+                                                                                                                                       ]
+                                                                                                       },
+                                                                                                "zh":  {
+                                                                                                           "id":  22791,
+                                                                                                           "created_at":  "2026-09-06T00:44:51.453Z",
+                                                                                                           "updated_at":  "2026-09-06T00:44:51.453Z",
+                                                                                                           "app_id":  6459,
+                                                                                                           "create_user_id":  665,
+                                                                                                           "language":  "zh",
+                                                                                                           "name":  "易创",
+                                                                                                           "brief":  "纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词",
+                                                                                                           "description":  "易创（easy-writing）是开源 AGPL-3.0 的本地优先 AI 网文写作软件，由长期线上运营的写作平台客户端改造而来。\n\n原项目功能：TipTap 富文本写作台，卷/章目录树、边写边存、每章自动保留历史版本；书架多作品管理（分组/封面/TXT·JSON 导入导出/回收站）；参考资料五件套（大纲、角色关系图、设定、时间线、故事线）；码字统计与灵感速记；AI 辅助支持 BYOK 直连 DeepSeek、通义千问、智谱、OpenRouter 等 OpenAI 兼容渠道及本地 Ollama，提供划词润色、流式续写、妙笔对话、工作流一键建书、AI 封面与取名器；榜单风向内置番茄/起点/七猫适配器。\n\n懒猫版新增：网页端开箱即用，数据按浏览器隔离存储；导出/导入接入懒猫网盘（保存到懒猫网盘、从懒猫网盘打开，按微服用户隔离）；榜单抓取经服务端真实浏览器渲染，起点/番茄/七猫在网页端可用；BYOK 密钥仅保存在浏览器本地，代理转发不落盘。",
+                                                                                                           "keywords":  "AI写作, 网文, 小说, 写作工具, 码字统计",
+                                                                                                           "source":  "https://github.com/yilujian/easy-writing",
+                                                                                                           "source_author":  "yilujian",
+                                                                                                           "support_pc":  true,
+                                                                                                           "support_mobile":  false,
+                                                                                                           "screenshot_pc_paths":  [
+                                                                                                                                       "/public/a2601b2c-6e8f-4bf7-ae75-d4b66238caa2.png",
+                                                                                                                                       "/public/cb2fd8b4-4e9e-44da-b0a0-4ac33a3dde54.png",
+                                                                                                                                       "/public/3c1d1ce4-50eb-4d4c-9048-3bc11b68f4a9.png",
+                                                                                                                                       "/public/c4442e0f-acd8-4c89-999a-52cea81f700c.png"
+                                                                                                                                   ],
+                                                                                                           "screenshot_mobile_paths":  [
+
+                                                                                                                                       ]
+                                                                                                       }
+                                                                                            }
+                                                                          },
+                                                             "version":  {
+                                                                             "id":  12097,
+                                                                             "created_at":  "2026-09-06T00:44:51.561Z",
+                                                                             "updated_at":  "2026-09-06T00:44:51.561Z",
+                                                                             "app_id":  6459,
+                                                                             "create_user_id":  665,
+                                                                             "create_user":  null,
+                                                                             "package":  "cloud.lazycat.app.easywriting",
+                                                                             "name":  "1.0.8",
+                                                                             "pkg_hash":  "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+                                                                             "pkg_path":  "864efc1d-58fa-4c7a-8982-01b785aef6cd.lpk",
+                                                                             "icon_path":  "appstore/lpks/review/a779cd15-473a-42a6-b2e7-6ce9bf4e0f96_icon.png",
+                                                                             "icon_hash":  "e2c031e6f84ff1d991465e5d9ca5fe8a",
+                                                                             "unsupported_platforms":  [
+                                                                                                           "android",
+                                                                                                           "ios"
+                                                                                                       ],
+                                                                             "min_os_version":  "1.5.0",
+                                                                             "lpk_size":  175616,
+                                                                             "image_size":  404667500,
+                                                                             "lpk_manifest":  "package: cloud.lazycat.app.easywriting\nversion: 1.0.8\nname: 易创\ndescription: 纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词，数据存于浏览器本地\nauthor: yilujian\nlicense: AGPL-3.0-only\nhomepage: https://github.com/yilujian/easy-writing\nmin_os_version: 1.5.0\nunsupported_platforms:\n  - android\n  - ios\nlocales:\n  en-US:\n    description: \u0027Open-source local-first AI novel writing app: BYOK direct connection, custom prompts and browser-local data storage\u0027\n    name: Easy Writing\n  zh-CN:\n    description: 纯本地、开源的 AI 网文写作软件：小说创作、BYOK 直连、自定义提示词与本地数据存储\n    name: 易创\npermissions:\n  required:\n    - net.internet\n    - document.private\n  optional:\n    - net.lan\nformat: v2\nis_app: true\nimages:\n  # 来源: services.server.image\n  - registry.lazycat.cloud/u87691755/ew394a48/easywriting-server:490d4bba6614b499\n",
+                                                                             "changelogs":  {
+
+                                                                                            }
+                                                                         },
+                                                             "category_list":  null,
+                                                             "comments":  null
+                                                         }
+                                          }
+                                      ]
+               }
+}

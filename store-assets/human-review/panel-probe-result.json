@@ -1,0 +1,295 @@
+{
+  "schema_version": "0.1",
+  "kind": "lazycat.store.review_panel_probe_result",
+  "generated_at": "2026-09-06T08:42:45+08:00",
+  "ok": true,
+  "exit_code": 0,
+  "status": "pass",
+  "review_pack_path": "D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json",
+  "result_path": "D:/7.code/easy-writing/store-assets/human-review/panel-probe-result.json",
+  "expected_package": "cloud.lazycat.app.easywriting",
+  "review_pack_sha256": "ecf18b2689f790324996c03954d84340116136172c91b4a6af1db450af2ddf4c",
+  "render_model": {
+    "package": "cloud.lazycat.app.easywriting",
+    "app_id": 6459,
+    "version": "1.0.8",
+    "lpk_sha256": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+    "store_submit_path": "D:/7.code/easy-writing/store-assets/store-submit.json",
+    "locales": {
+      "zh": {
+        "present": true,
+        "fields": {
+          "name": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "brief": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "keywords": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "description": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "source": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "source_author": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          },
+          "changelog": {
+            "status": "needs_review",
+            "has_value": true,
+            "display_value": "--"
+          }
+        }
+      }
+    },
+    "screenshots": {
+      "pc": {
+        "present": true,
+        "support": true,
+        "verified": true,
+        "count": 4,
+        "missing_assets": []
+      },
+      "mobile": {
+        "present": true,
+        "support": false,
+        "verified": false,
+        "count": 0,
+        "missing_assets": []
+      }
+    },
+    "review_items": {
+      "count": 7,
+      "status_counts": {
+        "needs_review": 3,
+        "pass": 4
+      }
+    },
+    "lazycat_features_count": 2,
+    "review_feedback_count": 0,
+    "edit_interface": {
+      "present": true,
+      "editable_paths_count": 29
+    },
+    "submit_interface": {
+      "present": true,
+      "actions": [
+        "submit",
+        "upload-only",
+        "validate",
+        "verify-only"
+      ]
+    },
+    "panel_probe_interface": {
+      "present": true
+    }
+  },
+  "checks": [
+    {
+      "id": "review-pack:kind",
+      "status": "ok",
+      "title": "Review pack kind is valid",
+      "detail": "lazycat.store.app_detail_review",
+      "evidence": []
+    },
+    {
+      "id": "review-pack:schema-version",
+      "status": "ok",
+      "title": "Review pack schema version is supported",
+      "detail": "0.1",
+      "evidence": []
+    },
+    {
+      "id": "app:package",
+      "status": "ok",
+      "title": "Package is present",
+      "detail": "cloud.lazycat.app.easywriting",
+      "evidence": []
+    },
+    {
+      "id": "app:version",
+      "status": "ok",
+      "title": "app.version is present",
+      "detail": "1.0.8",
+      "evidence": []
+    },
+    {
+      "id": "app:lpk_sha256",
+      "status": "ok",
+      "title": "app.lpk_sha256 is present",
+      "detail": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+      "evidence": []
+    },
+    {
+      "id": "source:store-submit-path",
+      "status": "ok",
+      "title": "store-submit.json source exists",
+      "detail": "Found D:\\7.code\\easy-writing\\store-assets\\store-submit.json",
+      "evidence": []
+    },
+    {
+      "id": "backend-page:version-panel",
+      "status": "ok",
+      "title": "Version panel is present",
+      "detail": "",
+      "evidence": []
+    },
+    {
+      "id": "application-panel:package-field",
+      "status": "ok",
+      "title": "Package field is renderable",
+      "detail": "cloud.lazycat.app.easywriting",
+      "evidence": []
+    },
+    {
+      "id": "application-panel:locales",
+      "status": "ok",
+      "title": "Locale panels are present",
+      "detail": "en, zh",
+      "evidence": []
+    },
+    {
+      "id": "locale:zh:shape",
+      "status": "ok",
+      "title": "zh locale panel is renderable",
+      "detail": "Checked fields: name, brief, keywords, description, source, source_author, changelog",
+      "evidence": []
+    },
+    {
+      "id": "screenshots:pc:assets",
+      "status": "ok",
+      "title": "pc screenshot assets are resolvable",
+      "detail": "support=True; verified=True; count=4",
+      "evidence": []
+    },
+    {
+      "id": "screenshots:mobile:assets",
+      "status": "ok",
+      "title": "mobile screenshot assets are resolvable",
+      "detail": "support=False; verified=False; count=0",
+      "evidence": []
+    },
+    {
+      "id": "platform:mobile-no-screenshots",
+      "status": "ok",
+      "title": "No-mobile metadata is aligned",
+      "detail": "unsupported_platforms includes android and ios",
+      "evidence": []
+    },
+    {
+      "id": "review-items:present",
+      "status": "ok",
+      "title": "Review items are present",
+      "detail": "count=7",
+      "evidence": []
+    },
+    {
+      "id": "lazycat-features:present",
+      "status": "ok",
+      "title": "LazyCat feature declarations are present",
+      "detail": "count=2",
+      "evidence": []
+    },
+    {
+      "id": "review-feedback:present",
+      "status": "ok",
+      "title": "Review feedback section is present",
+      "detail": "count=0",
+      "evidence": []
+    },
+    {
+      "id": "edit-interface:script",
+      "status": "ok",
+      "title": "Apply script exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\scripts\\lazycat_store_review_apply.py",
+      "evidence": []
+    },
+    {
+      "id": "edit-interface:request-schema",
+      "status": "ok",
+      "title": "Apply request schema exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\schemas\\store_review_apply_request.schema.json",
+      "evidence": []
+    },
+    {
+      "id": "edit-interface:result-schema",
+      "status": "ok",
+      "title": "Apply result schema exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\schemas\\store_review_apply_result.schema.json",
+      "evidence": []
+    },
+    {
+      "id": "edit-interface:commands",
+      "status": "ok",
+      "title": "Edit commands are complete",
+      "detail": "apply, approve, dry_run, reject",
+      "evidence": []
+    },
+    {
+      "id": "edit-interface:editable-paths",
+      "status": "ok",
+      "title": "Editable paths include panel essentials",
+      "detail": "count=29",
+      "evidence": []
+    },
+    {
+      "id": "submit-interface:script",
+      "status": "ok",
+      "title": "Submit script exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\scripts\\lazycat_store_review_submit.py",
+      "evidence": []
+    },
+    {
+      "id": "submit-interface:result-schema",
+      "status": "ok",
+      "title": "Submit result schema exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\schemas\\store_review_submit_result.schema.json",
+      "evidence": []
+    },
+    {
+      "id": "submit-interface:actions",
+      "status": "ok",
+      "title": "Submit actions are complete",
+      "detail": "submit, validate",
+      "evidence": []
+    },
+    {
+      "id": "submit-interface:result-contract",
+      "status": "ok",
+      "title": "Submit result contract is usable",
+      "detail": "kind=lazycat.store.review_submit_result",
+      "evidence": []
+    },
+    {
+      "id": "panel-probe-interface:script",
+      "status": "ok",
+      "title": "Panel probe script exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\scripts\\lazycat_store_review_panel_probe.py",
+      "evidence": []
+    },
+    {
+      "id": "panel-probe-interface:result-schema",
+      "status": "ok",
+      "title": "Panel probe result schema exists",
+      "detail": "Found D:\\7.code\\lazycat-skills\\schemas\\store_review_panel_probe_result.schema.json",
+      "evidence": []
+    }
+  ],
+  "warnings": [],
+  "error": null
+}

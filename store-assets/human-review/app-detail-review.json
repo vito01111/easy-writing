@@ -1,0 +1,578 @@
+{
+  "schema_version": "0.1",
+  "kind": "lazycat.store.app_detail_review",
+  "generated_at": "2026-09-06T08:42:45+08:00",
+  "source": {
+    "store_submit_path": "../store-submit.json",
+    "store_submit_report_path": "../store-submit-report.json",
+    "source_precedence": [
+      "remote.submitted_review.resource.info_data and remote.submitted_review.version",
+      "remote.checks_in_reviews_item",
+      "preflight.summary",
+      "store-submit.json"
+    ]
+  },
+  "app": {
+    "app_id": 6459,
+    "package": "cloud.lazycat.app.easywriting",
+    "is_original": false,
+    "source": "https://github.com/yilujian/easy-writing",
+    "source_author": "yilujian",
+    "review_id": null,
+    "review_status": null,
+    "review_created_at": null,
+    "version": "1.0.8",
+    "lpk_sha256": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+    "lpk_size": 175616,
+    "image_size": null,
+    "icon_path": ""
+  },
+  "human_review": {
+    "status": "approved",
+    "reviewer": "vito01111",
+    "reviewed_at": "2026-09-06T08:20:00+08:00",
+    "decision": "submit",
+    "notes": "已核对应用详情、中英文案、4 张 PC 截图、平台支持（不支持移动端已在 LPK 声明）、LPK SHA 与文件拦截验收证据（intercept_check blocking=0）。"
+  },
+  "backend_page": {
+    "version_panel": {
+      "min_os_version": {
+        "id": "min_os_version",
+        "label": "要求最小系统版本",
+        "draft_value": "",
+        "submitted_value": "",
+        "display_value": "--",
+        "status": "pass"
+      },
+      "unsupported_platforms": {
+        "id": "unsupported_platforms",
+        "label": "声明不支持的平台",
+        "submitted_value": [
+          "android",
+          "ios"
+        ],
+        "display_value": "android, ios",
+        "status": "pass"
+      },
+      "changelog_by_locale": {
+        "en": {
+          "id": "changelog",
+          "label": "版本更新说明",
+          "draft_value": "First release: full port of upstream v1.0.6; adds LazyCat Drive file interception (import/export), server-rendered rank crawling (Qidian/Fanqie/Qimao) and same-origin AI proxy (keys stay in browser).",
+          "submitted_value": "",
+          "display_value": "--",
+          "status": "needs_review"
+        },
+        "zh": {
+          "id": "changelog",
+          "label": "版本更新说明",
+          "draft_value": "首次上架：上游 v1.0.6 功能全量移植；新增懒猫网盘文件拦截（导入/导出）、服务端渲染榜单抓取（起点/番茄/七猫）、同源 AI 代理（密钥仅存浏览器本地）。",
+          "submitted_value": "",
+          "display_value": "--",
+          "status": "needs_review"
+        }
+      }
+    },
+    "application_panel": {
+      "active_locale": "zh",
+      "package_field": {
+        "id": "package",
+        "label": "应用包标识符",
+        "draft_value": "cloud.lazycat.app.easywriting",
+        "submitted_value": "cloud.lazycat.app.easywriting",
+        "display_value": "cloud.lazycat.app.easywriting",
+        "status": "pass"
+      },
+      "locales": {
+        "en": {
+          "language": "en",
+          "fields": {
+            "name": {
+              "id": "name",
+              "label": "应用名称",
+              "draft_value": "Easy Writing",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "brief": {
+              "id": "brief",
+              "label": "应用简介",
+              "draft_value": "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "keywords": {
+              "id": "keywords",
+              "label": "应用关键词",
+              "draft_value": [
+                "AI writing",
+                "novel",
+                "web novel",
+                "writing tool",
+                "word count"
+              ],
+              "submitted_value": [],
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "description": {
+              "id": "description",
+              "label": "应用描述",
+              "draft_value": "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "source": {
+              "id": "source",
+              "label": "项目移植来源 URL 地址",
+              "draft_value": "https://github.com/yilujian/easy-writing",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "source_author": {
+              "id": "source_author",
+              "label": "移植来源作者名称",
+              "draft_value": "yilujian",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "changelog": {
+              "id": "changelog",
+              "label": "版本更新说明",
+              "draft_value": "First release: full port of upstream v1.0.6; adds LazyCat Drive file interception (import/export), server-rendered rank crawling (Qidian/Fanqie/Qimao) and same-origin AI proxy (keys stay in browser).",
+              "submitted_value": "",
+              "display_value": "--",
+              "status": "needs_review"
+            }
+          }
+        },
+        "zh": {
+          "language": "zh",
+          "fields": {
+            "name": {
+              "id": "name",
+              "label": "应用名称",
+              "draft_value": "易创",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "brief": {
+              "id": "brief",
+              "label": "应用简介",
+              "draft_value": "纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "keywords": {
+              "id": "keywords",
+              "label": "应用关键词",
+              "draft_value": [
+                "AI写作",
+                "网文",
+                "小说",
+                "写作工具",
+                "码字统计"
+              ],
+              "submitted_value": [],
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "description": {
+              "id": "description",
+              "label": "应用描述",
+              "draft_value": "易创（easy-writing）是开源 AGPL-3.0 的本地优先 AI 网文写作软件，由长期线上运营的写作平台客户端改造而来。\n\n原项目功能：TipTap 富文本写作台，卷/章目录树、边写边存、每章自动保留历史版本；书架多作品管理（分组/封面/TXT·JSON 导入导出/回收站）；参考资料五件套（大纲、角色关系图、设定、时间线、故事线）；码字统计与灵感速记；AI 辅助支持 BYOK 直连 DeepSeek、通义千问、智谱、OpenRouter 等 OpenAI 兼容渠道及本地 Ollama，提供划词润色、流式续写、妙笔对话、工作流一键建书、AI 封面与取名器；榜单风向内置番茄/起点/七猫适配器。\n\n懒猫版新增：网页端开箱即用，数据按浏览器隔离存储；导出/导入接入懒猫网盘（保存到懒猫网盘、从懒猫网盘打开，按微服用户隔离）；榜单抓取经服务端真实浏览器渲染，起点/番茄/七猫在网页端可用；BYOK 密钥仅保存在浏览器本地，代理转发不落盘。",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "source": {
+              "id": "source",
+              "label": "项目移植来源 URL 地址",
+              "draft_value": "https://github.com/yilujian/easy-writing",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "source_author": {
+              "id": "source_author",
+              "label": "移植来源作者名称",
+              "draft_value": "yilujian",
+              "submitted_value": null,
+              "display_value": "--",
+              "status": "needs_review"
+            },
+            "changelog": {
+              "id": "changelog",
+              "label": "版本更新说明",
+              "draft_value": "首次上架：上游 v1.0.6 功能全量移植；新增懒猫网盘文件拦截（导入/导出）、服务端渲染榜单抓取（起点/番茄/七猫）、同源 AI 代理（密钥仅存浏览器本地）。",
+              "submitted_value": "",
+              "display_value": "--",
+              "status": "needs_review"
+            }
+          }
+        }
+      }
+    },
+    "screenshots_panel": {
+      "pc": {
+        "support": true,
+        "verified": true,
+        "images": [
+          {
+            "id": "pc-01",
+            "platform": "pc",
+            "source_path": "screenshots/pc-01-shelf.png",
+            "asset_path": "../screenshots/pc-01-shelf.png",
+            "file_name": "pc-01-shelf.png",
+            "exists": true,
+            "size_bytes": 1214774,
+            "sha256": "70f7d2a481f250d71c8c5cfec79d8248685c3387c65284fd83f1d417c40749a4",
+            "width": 2566,
+            "height": 1196,
+            "remote_path": "",
+            "caption": "",
+            "review_status": "pending"
+          },
+          {
+            "id": "pc-02",
+            "platform": "pc",
+            "source_path": "screenshots/pc-02-writing.png",
+            "asset_path": "../screenshots/pc-02-writing.png",
+            "file_name": "pc-02-writing.png",
+            "exists": true,
+            "size_bytes": 1530771,
+            "sha256": "fb1ff7307813f648e22c73278729a35a7cdeabc12963b648a93327d0a016c7b3",
+            "width": 2566,
+            "height": 1196,
+            "remote_path": "",
+            "caption": "",
+            "review_status": "pending"
+          },
+          {
+            "id": "pc-03",
+            "platform": "pc",
+            "source_path": "screenshots/pc-03-rank.png",
+            "asset_path": "../screenshots/pc-03-rank.png",
+            "file_name": "pc-03-rank.png",
+            "exists": true,
+            "size_bytes": 963176,
+            "sha256": "71bed9cb8a848038da4fc3f7d6e9b8b127e0e99448c2c282d980050059ea0248",
+            "width": 2566,
+            "height": 1196,
+            "remote_path": "",
+            "caption": "",
+            "review_status": "pending"
+          },
+          {
+            "id": "pc-04",
+            "platform": "pc",
+            "source_path": "screenshots/pc-04-models.png",
+            "asset_path": "../screenshots/pc-04-models.png",
+            "file_name": "pc-04-models.png",
+            "exists": true,
+            "size_bytes": 1049761,
+            "sha256": "a82aaebb112f603b2d3aed5d6bd41f6226a2bef4b9c6a241f840c3444087df7c",
+            "width": 2566,
+            "height": 1196,
+            "remote_path": "",
+            "caption": "",
+            "review_status": "pending"
+          }
+        ],
+        "empty_message": ""
+      },
+      "mobile": {
+        "support": false,
+        "verified": false,
+        "images": [],
+        "empty_message": "未上传移动端应用使用截图"
+      }
+    }
+  },
+  "lazycat_features": [
+    {
+      "id": "lazycat-drive-explicit-channel",
+      "label": "导入/导出接入懒猫网盘（从懒猫网盘打开 / 保存到懒猫网盘）",
+      "evidence": [
+        "lzc-manifest.yml ext_config.enable_media_access=true（读通道 /lzcapp/media/RemoteFS）",
+        "package.yml permissions.required document.private（写通道 /lzcapp/documents/<uid>）",
+        "server.mjs /api/lazycat/list|file|save 契约接口，X-HC-User-ID 用户隔离 + 挂载容错",
+        "verify/1.0.8/intercept-report.json: L2.3 用户隔离 PASS、L2.4 穿越防护 PASS、L3.1-L3.3 写入/落盘/读回字节一致 PASS（blocking=0）",
+        "浏览器 QA: 导出 txt 落盘 documents/vito/ 122 字节并从网盘对话框导回成新书"
+      ]
+    },
+    {
+      "id": "local-first-byok",
+      "label": "BYOK 直连与本地数据：密钥仅存浏览器本地",
+      "evidence": [
+        "src/utils/local-ai-client.ts 密钥仅浏览器侧拼装后装信封转发",
+        "server.mjs 代理仅转发不落盘（无持久化逻辑）"
+      ]
+    }
+  ],
+  "review_feedback": [],
+  "preflight_summary": {
+    "app_id": 6459,
+    "package": "cloud.lazycat.app.easywriting",
+    "lpk_path": "D:/7.code/easy-writing/lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.8.lpk",
+    "lpk_size": 175616,
+    "lpk_sha256": "3eacba0a2d7ad9e4f55ad626108c5aa1cfd822f89a9bbb7628e4dc8fc7bcd9b5",
+    "package_version": "1.0.8",
+    "package_license": "AGPL-3.0",
+    "upstream_licenses": [
+      {
+        "source": "store-submit",
+        "license": "AGPL-3.0"
+      },
+      {
+        "source": "LICENSE",
+        "license": "AGPL-3.0"
+      }
+    ],
+    "icon_present": true,
+    "support_pc": true,
+    "support_mobile": false,
+    "unsupported_platforms": [
+      "android",
+      "ios"
+    ],
+    "has_images_lock": false,
+    "embedded_image_members": 0,
+    "has_embed_refs": false,
+    "verified_pc": true,
+    "verified_mobile": false,
+    "pc_screenshots": 4,
+    "mobile_screenshots": 0,
+    "is_original": false,
+    "source": "https://github.com/yilujian/easy-writing",
+    "source_author": "yilujian",
+    "review_feedback_count": 0,
+    "review_feedback_resolved": 0,
+    "review_feedback_open": 0,
+    "review_feedback_categories": [],
+    "lane": {
+      "dockerfiles_scanned": 0
+    },
+    "icon_path": "D:/7.code/easy-writing/icon.png",
+    "icon_bytes": 170934,
+    "icon_dimensions": "512x512",
+    "icon_sha256": "796db68b2a957acc3fad039f48d92db3a3ec5b49231e8800092480b5d285949e",
+    "verify_evidence": {
+      "version": "1.0.8",
+      "dir": "D:/7.code/easy-writing/verify/1.0.8",
+      "assets": 3,
+      "zh_screenshots": 3
+    }
+  },
+  "review_items": [
+    {
+      "id": "app-info.zh",
+      "title": "中文应用信息",
+      "status": "needs_review",
+      "detail": "确认中文名称、简介、关键词、描述与后台提交页一致。",
+      "evidence": [],
+      "reviewer_note": ""
+    },
+    {
+      "id": "app-info.en",
+      "title": "英文应用信息",
+      "status": "needs_review",
+      "detail": "确认英文资料完整，避免后台自动生成或空值。",
+      "evidence": [],
+      "reviewer_note": ""
+    },
+    {
+      "id": "version.changelog",
+      "title": "版本更新说明",
+      "status": "needs_review",
+      "detail": "后台版本更新说明为空或与 store-submit 草稿不一致时，提交前需要人工确认是否补齐。",
+      "evidence": [],
+      "reviewer_note": ""
+    },
+    {
+      "id": "platform.mobile",
+      "title": "移动端截图与 unsupported_platforms",
+      "status": "pass",
+      "detail": "无移动端截图时，最终 LPK 必须声明 android 和 ios 不支持；支持移动端时必须有移动端截图。",
+      "evidence": [
+        "unsupported_platforms=['android', 'ios']",
+        "mobile_screenshots=0"
+      ],
+      "reviewer_note": ""
+    },
+    {
+      "id": "screenshots.pc",
+      "title": "桌面端截图",
+      "status": "pass",
+      "detail": "确认截图真实、无调试标记、代表主流程，并与后台远端截图数量一致。",
+      "evidence": [
+        "../screenshots/pc-01-shelf.png",
+        "../screenshots/pc-02-writing.png",
+        "../screenshots/pc-03-rank.png",
+        "../screenshots/pc-04-models.png"
+      ],
+      "reviewer_note": ""
+    },
+    {
+      "id": "lazycat-features",
+      "title": "LazyCat 特性声明",
+      "status": "pass",
+      "detail": "确认描述里的 LazyCat 能力都有 manifest、代码或运行态证据支撑。",
+      "evidence": [
+        "lazycat-drive-explicit-channel",
+        "local-first-byok"
+      ],
+      "reviewer_note": ""
+    },
+    {
+      "id": "review-feedback",
+      "title": "复审反馈闭环",
+      "status": "pass",
+      "detail": "确认通知中心退回项逐条关闭并附证据。",
+      "evidence": [],
+      "reviewer_note": ""
+    }
+  ],
+  "edit_interface": {
+    "script": "D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py",
+    "review_pack_path": "D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json",
+    "result_path": "D:/7.code/easy-writing/store-assets/human-review/apply-result.json",
+    "request_schema": "D:/7.code/lazycat-skills/schemas/store_review_apply_request.schema.json",
+    "result_schema": "D:/7.code/lazycat-skills/schemas/store_review_apply_result.schema.json",
+    "commands": {
+      "dry_run": {
+        "description": "Apply UI edits to a temporary store-submit.json and run preflight without changing source files.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --patch <ui-edits.json> --dry-run"
+      },
+      "apply": {
+        "description": "Apply UI edits to store-submit.json, run preflight, write store-submit-report.json, and regenerate this review pack.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --patch <ui-edits.json>"
+      },
+      "apply_blocking_draft": {
+        "description": "Save an incomplete draft even when preflight is blocking; approval and submit remain blocked.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --patch <ui-edits.json> --allow-blocking-draft"
+      },
+      "approve": {
+        "description": "Write human_review approval through the same interface after the operator accepts the refreshed review pack.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --patch <approval-patch.json>"
+      },
+      "reject": {
+        "description": "Write a human_review rejection/note through the same interface without submitting.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_apply.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --patch <rejection-patch.json>"
+      }
+    },
+    "editable_paths": [
+      "/app_id",
+      "/lpk_path",
+      "/is_original",
+      "/source",
+      "/source_author",
+      "/upstream_license",
+      "/locales/zh/name",
+      "/locales/zh/brief",
+      "/locales/zh/keywords",
+      "/locales/zh/description",
+      "/locales/zh/changelog",
+      "/locales/en/name",
+      "/locales/en/brief",
+      "/locales/en/keywords",
+      "/locales/en/description",
+      "/locales/en/changelog",
+      "/support/pc",
+      "/support/mobile",
+      "/verified/pc",
+      "/verified/mobile",
+      "/screenshots/pc",
+      "/screenshots/mobile",
+      "/lazycat_features",
+      "/review_feedback",
+      "/human_review/status",
+      "/human_review/decision",
+      "/human_review/reviewer",
+      "/human_review/reviewed_at",
+      "/human_review/notes"
+    ],
+    "write_contract": {
+      "store_submission_fields": "Use lazycat_store_review_apply.py; it updates store-submit.json, reruns preflight, and regenerates app-detail-review.json.",
+      "human_review_fields": "Use lazycat_store_review_apply.py with /human_review/* paths; the frontend must not write app-detail-review.json directly.",
+      "scope_rule": "Do not mix store-submit paths and human_review paths in one patch. Store-submit edits regenerate the pack and reset approval; human_review edits only update the review decision after preflight/freshness checks.",
+      "stale_guard": "Optional request.base_review_sha256 must match the currently loaded app-detail-review.json SHA256."
+    },
+    "result_contract": {
+      "kind": "lazycat.store.review_apply_result",
+      "ok": "boolean",
+      "exit_code": "0 success; 2 invalid request/json/path/type; 3 stale review pack; 4 preflight blocked; 5 review pack regeneration failed",
+      "write_scope": "store_submit or human_review",
+      "changed_paths": "JSON Pointer paths applied by the interface",
+      "error.code": "stable machine-readable error code when ok=false",
+      "process.preflight_stdout_tail": "redacted preflight stdout tail",
+      "process.review_pack_stderr_tail": "review-pack regeneration stderr tail"
+    }
+  },
+  "submit_interface": {
+    "script": "D:/7.code/lazycat-skills/scripts/lazycat_store_review_submit.py",
+    "review_pack_path": "D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json",
+    "result_path": "D:/7.code/easy-writing/store-assets/human-review/submit-result.json",
+    "result_schema": "D:/7.code/lazycat-skills/schemas/store_review_submit_result.schema.json",
+    "approval_contract": {
+      "human_review.status": "approved",
+      "human_review.decision": "submit",
+      "human_review.reviewed_at": "ISO-8601 timestamp recommended",
+      "human_review.reviewer": "operator name or UI user id",
+      "human_review.notes": "optional reviewer notes"
+    },
+    "actions": {
+      "validate": {
+        "description": "Validate review pack freshness and preflight without changing developer-center state.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_submit.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --action validate"
+      },
+      "upload-only": {
+        "description": "Upload screenshots and LPK after human approval, but do not create a review.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_submit.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --action upload-only"
+      },
+      "submit": {
+        "description": "Submit review after human approval.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_submit.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --action submit"
+      },
+      "verify-only": {
+        "description": "Read developer-center state and write report without uploading/submitting.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_submit.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --action verify-only"
+      }
+    },
+    "result_contract": {
+      "kind": "lazycat.store.review_submit_result",
+      "ok": "boolean",
+      "exit_code": "0 success; 2 invalid pack/json; 3 approval or freshness blocked; 4 preflight blocked; 5 submit script failed",
+      "error.code": "stable machine-readable error code when ok=false",
+      "process.stdout_tail": "redacted tail of underlying script stdout",
+      "process.stderr_tail": "redacted tail of underlying script stderr"
+    }
+  },
+  "panel_probe_interface": {
+    "script": "D:/7.code/lazycat-skills/scripts/lazycat_store_review_panel_probe.py",
+    "review_pack_path": "D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json",
+    "result_path": "D:/7.code/easy-writing/store-assets/human-review/panel-probe-result.json",
+    "result_schema": "D:/7.code/lazycat-skills/schemas/store_review_panel_probe_result.schema.json",
+    "commands": {
+      "probe": {
+        "description": "Validate that the review pack is renderable by the local review panel.",
+        "command": "python D:/7.code/lazycat-skills/scripts/lazycat_store_review_panel_probe.py --review-pack D:/7.code/easy-writing/store-assets/human-review/app-detail-review.json --result D:/7.code/easy-writing/store-assets/human-review/panel-probe-result.json --format json"
+      }
+    },
+    "result_contract": {
+      "kind": "lazycat.store.review_panel_probe_result",
+      "ok": "boolean",
+      "exit_code": "0 panel-ready; 1 blocking data/interface issue; 2 invalid or unreadable review pack",
+      "render_model": "UI-ready summary for package, locales, screenshots, review items, and endpoint metadata",
+      "checks": "Per-section ok/warn/blocking diagnostics",
+      "error.code": "stable machine-readable error code when ok=false"
+    }
+  }
+}
