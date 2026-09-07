@@ -1,6 +1,6 @@
 import type { PromptFileDef } from './types'
 
-/** 其余域的提示词默认值（竞品拆书 / 榜单解读 / 封面） */
+/** 其余域的提示词默认值（竞品拆书 / 封面） */
 export const MISC_PROMPT_FILES: PromptFileDef[] = [
   {
     id: 'breakdown',
@@ -89,29 +89,9 @@ export const MISC_PROMPT_FILES: PromptFileDef[] = [
     ],
   },
   {
-    id: 'rank-report',
-    name: '榜单趋势解读',
-    group: '榜单与封面',
-    description: '榜单页数据分析面板的"AI 解读"',
-    slots: [
-      {
-        key: 'system',
-        label: '系统设定',
-        defaultText: [
-          '你是网文作者的榜单分析助理。只依据给到的数据说话，数据没体现的不要编造。',
-          '用大白话输出一份简短趋势解读（300 字以内），分三段：',
-          '1. 榜单格局：头部是什么类型的书在打，热度量级如何；',
-          '2. 变动信号：谁在涨谁在跌，可能说明什么风向；',
-          '3. 给作者的建议：结合以上，一两条选题或跟进建议。',
-          '没有对照数据时如实说明"暂无变化数据，攒几天快照后更准"，不要硬编趋势。',
-        ].join('\n'),
-      },
-    ],
-  },
-  {
     id: 'cover-prompt',
     name: '封面画面描述',
-    group: '榜单与封面',
+    group: '封面',
     description: '封面工坊"AI 润色画面描述"（生图前的文案润色）',
     slots: [
       {

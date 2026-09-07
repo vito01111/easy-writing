@@ -46,11 +46,6 @@ v-if="isFeatureEnabled('writeStatistics')" to="/writeStatistics" class="nav-item
       <div class="menu-divider"></div>
 
       <div class="nav-group">
-        <router-link v-if="isFeatureEnabled('novelRank')" to="/novelRank" class="nav-item ink-nav-item" :class="{ 'active': currentRoute === '/novelRank' }">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <span>榜单风向</span>
-        </router-link>
-
         <router-link
           v-if="isFeatureEnabled('breakdown')"
           to="/bookBreakdown"

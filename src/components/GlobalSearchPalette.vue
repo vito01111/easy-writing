@@ -77,7 +77,6 @@ const FEATURE_ENTRIES: FeatureEntry[] = [
   { title: '我的作品', path: '/myBooks', icon: 'fa-solid fa-book', keywords: 'books mybooks wodezuopin wdzp zuopin' },
   { title: '工作流建书', path: '/workflowBook', icon: 'fa-solid fa-diagram-project', keywords: 'workflow gongzuoliujianshu gzljs jianshu', featureKey: 'workflowBook' },
   { title: '码字统计', path: '/writeStatistics', icon: 'fa-solid fa-chart-line', keywords: 'statistics mazitongji mztj tongji', featureKey: 'writeStatistics' },
-  { title: '榜单风向', path: '/novelRank', icon: 'fa-solid fa-arrow-trend-up', keywords: 'rank bangdanfengxiang bdfx bangdan', featureKey: 'novelRank' },
   { title: '竞品拆书', path: '/bookBreakdown', icon: 'fa-solid fa-file-invoice', keywords: 'breakdown jingpinchaishu jpcs chaishu', featureKey: 'breakdown' },
   { title: '灵感素材', path: '/inspiration', icon: 'fa-regular fa-lightbulb', keywords: 'inspiration linggansucai lgsc linggan', featureKey: 'inspiration' },
   { title: '模型管理', path: '/aiModels', icon: 'fa-solid fa-cube', keywords: 'models moxingguanli mxgl moxing', featureKey: 'byokModels' },

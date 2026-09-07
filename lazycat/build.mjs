@@ -37,6 +37,6 @@ mkdirSync(outDir, { recursive: true })
 // 冒号当远程主机语法（tar: Cannot connect to D: resolve failed），bsdtar 则没有
 // --force-local 选项；相对 -f 名两家的行为一致
 run('tar', ['-cf', 'dist.tar', '-C', distDir, '.'], contextDir)
-run('tar', ['-cf', 'server.tar', '-C', here, 'server.mjs', 'render_worker.py'], contextDir)
+run('tar', ['-cf', 'server.tar', '-C', here, 'server.mjs'], contextDir)
 
 console.log('==> build context ready at .build-context/ (dist.tar + server.tar)')

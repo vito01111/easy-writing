@@ -301,13 +301,6 @@ export interface WorkflowPlatformResource {
   icon: string;
 }
 
-export interface WorkflowPlatformCategoryResource {
-  id: number;
-  code: string;
-  name: string;
-  gender: 'male' | 'female';
-}
-
 export interface WorkflowAssistResource {
   code: string;
   title: string;
@@ -335,7 +328,6 @@ export interface WorkflowResources {
   inspirationDirections: string[];
   inspirationAssistActions: WorkflowAssistResource[];
   platforms: WorkflowPlatformResource[];
-  platformCategories: Record<string, WorkflowPlatformCategoryResource[]>;
   genres: string[];
   tags: string[];
   selectFields: WorkflowSelectFieldResource[];

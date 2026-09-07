@@ -135,19 +135,11 @@ const originalAssistItems = computed(() => props.resources?.inspirationAssistAct
 const selectedPlatformCode = computed(() =>
   props.resources?.platforms.find(item => item.name === props.draft.baseConfig.platform)?.code || ''
 )
-const hasRankCategories = computed(() => {
-  const audience = props.draft.baseConfig.audience
-  const gender = audience.includes('女') ? 'female' : audience.includes('男') ? 'male' : ''
-  const categories = selectedPlatformCode.value
-    ? props.resources?.platformCategories?.[selectedPlatformCode.value] || []
-    : []
-  return categories.some(item => !gender || item.gender === gender)
-})
+
 const directionReady = computed(() => Boolean(
   props.draft.baseConfig.platform.trim() &&
   props.draft.baseConfig.audience.trim() &&
-  props.draft.baseConfig.genre.trim() &&
-  (!hasRankCategories.value || props.draft.baseConfig.platformCategory.trim())
+  props.draft.baseConfig.genre.trim()
 ))
 const selectedDirections = computed(() => Array.from(new Set([
   props.draft.baseConfig.genre,

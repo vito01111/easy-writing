@@ -56,8 +56,7 @@ const pageTitle = computed(() => {
   if (metaTitle) return metaTitle
   const titleMap: Record<string, string> = {
     '/myBooks': '我的作品',
-    '/writeStatistics': '码字统计',
-    '/novelRank': '全网风向标'
+    '/writeStatistics': '码字统计'
   }
   return titleMap[route.path] || '易创'
 })

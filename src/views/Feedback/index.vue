@@ -27,7 +27,7 @@
                 type="text"
                 class="ink-input"
                 maxlength="120"
-                placeholder="例如：榜单页未找到作品入口失效"
+                placeholder="例如：某按钮点击后无响应"
               />
             </label>
 
@@ -105,12 +105,6 @@ const form = reactive({
 })
 
 const queryLabelMap: Record<string, string> = {
-  platform: '平台',
-  siteCode: '站点编码',
-  rankType: '榜单类型',
-  gender: '男女频',
-  category: '分类',
-  categoryCode: '分类编码',
   keyword: '搜索词',
   bookName: '作品名',
   title: '页面标题',

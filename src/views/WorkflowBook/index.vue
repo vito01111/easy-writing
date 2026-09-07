@@ -385,22 +385,6 @@ const hasGeneratedContent = computed(() =>
   draft.outlineResult.chapters.length > 0 ||
   draft.settingResult.characters.length > 0
 )
-const currentPlatformRankCategories = computed(() => {
-  const platformCode = workflowResources.value?.platforms.find(
-    item => item.name === draft.baseConfig.platform
-  )?.code
-  const categories = platformCode
-    ? workflowResources.value?.platformCategories?.[platformCode] || []
-    : []
-  const audience = String(draft.baseConfig.audience || '')
-  const gender = audience.includes('女')
-    ? 'female'
-    : audience.includes('男')
-    ? 'male'
-    : ''
-  return gender ? categories.filter(item => item.gender === gender) : categories
-})
-
 const stepMetas = [
   { code: 'MODE_SELECT' as WorkflowStepCode, title: '创作方向与灵感', button: '下一步：写作参数' },
   { code: 'BASE_CONFIG' as WorkflowStepCode, title: '写作参数', button: '下一步：生成大纲' },
@@ -507,12 +491,6 @@ const creativeDirectionWarning = computed(() => {
   if (!String(draft.baseConfig.platform || '').trim()) return '请先选择发布平台'
   if (!String(draft.baseConfig.audience || '').trim()) return '请先选择目标读者'
   if (!String(draft.baseConfig.genre || '').trim()) return '请先选择小说类型'
-  if (
-    currentPlatformRankCategories.value.length > 0 &&
-    !String(draft.baseConfig.platformCategory || '').trim()
-  ) {
-    return '请先选择小说类型，或填写自定义类型'
-  }
   return ''
 })
 
@@ -1587,11 +1565,8 @@ const handlePrimary = async () => {
       return
     }
     if (draft.currentStep === 'BASE_CONFIG') {
-      if (
-        currentPlatformRankCategories.value.length > 0 &&
-        !String(draft.baseConfig.platformCategory || '').trim()
-      ) {
-        showWorkflowWarning('请先选择小说类型，或填写自定义类型')
+      if (!String(draft.baseConfig.genre || '').trim()) {
+        showWorkflowWarning('请先选择小说类型')
         return
       }
       // 已有大纲（可能含手改）时重生成会整包覆盖，先确认。

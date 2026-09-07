@@ -2,7 +2,7 @@ import type { LocalChatMessageInput } from '@/utils/local-ai-client'
 import { promptTemperature, promptText, renderPromptText } from '@/storage/local-prompts'
 
 /**
- * 写作台小件的提示词组装器（妙笔/续写/划词/参考面板/取名/灵感/榜单/封面）。
+ * 写作台小件的提示词组装器（妙笔/续写/划词/参考面板/取名/灵感/封面）。
  *
  * 提示词文本本体全部在本地 md 提示词库（storage/local-prompts，
  * 默认值见 config/prompts/），这里只做消息拼装：把动态素材
@@ -250,33 +250,6 @@ export const buildMiaobiMessages = (params: {
 }
 
 // ---------------------------------------------------------------------------
-// 榜单：趋势解读报告（数据分析面板，全部依据本机快照数据）
-// ---------------------------------------------------------------------------
-
-export const buildRankTrendReportMessages = (params: {
-  /** 榜单上下文，如"番茄小说网 · 阅读榜 · 男频 · 都市高武 · 2026-08-29" */
-  context: string
-  /** 榜单条目行，如"3. 书名 / 作者 / 分类 / 在读 9.5万 / 名次↑1" */
-  rankLines: string[]
-  /** 名次变化行，如"书名 ↑5（第8→第3）" */
-  changeLines?: string[]
-  /** 分类占比行，如"都市高武 32%（16 本）" */
-  categoryLines?: string[]
-}): LocalChatMessageInput[] => [
-  { role: 'system', content: promptText('rank-report', 'system') },
-  {
-    role: 'user',
-    content: [
-      `【榜单】${params.context}`,
-      `【当前榜单】\n${params.rankLines.join('\n')}`,
-      params.changeLines?.length ? `【名次变化】\n${params.changeLines.join('\n')}` : '',
-      params.categoryLines?.length ? `【分类占比】\n${params.categoryLines.join('\n')}` : '',
-    ]
-      .filter(Boolean)
-      .join('\n\n'),
-  },
-]
-
 /** 封面工坊「AI 润色画面描述」：把口语描述润成可直接生图的画面提示词（纯文本） */
 export const buildCoverPromptEnhanceMessages = (params: {
   prompt: string

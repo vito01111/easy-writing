@@ -5,7 +5,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import type { EChartsOption } from 'echarts'
 
 /**
- * echarts 按需引入的唯一出口（榜单页 / 码字统计页共用）。
+ * echarts 按需引入的唯一出口（码字统计页使用）。
  *
  * 全量包 min 后 1MB+（gzip 343KB），而项目只用柱状图和折线图。
  * 新页面要加图型/组件（如饼图 PieChart、区域缩放 DataZoomComponent）：

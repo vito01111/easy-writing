@@ -113,10 +113,7 @@
 import { computed } from 'vue'
 import ModelChip from '@/components/ModelChip.vue'
 import type { WorkflowBaseConfig, WorkflowDraft } from '../types'
-import type {
-  WorkflowPlatformCategoryResource,
-  WorkflowResources,
-} from '@/types/workflow'
+import type { WorkflowResources } from '@/types/workflow'
 
 const props = withDefaults(defineProps<{
   draft: WorkflowDraft
@@ -138,33 +135,10 @@ const audienceOptions = computed(() =>
   props.resources?.selectFields.find(item => item.key === 'audience')?.options || ['男频', '女频']
 )
 
-const resolveAudienceGender = (audience: string) => {
-  if (audience.includes('女')) return 'female'
-  if (audience.includes('男')) return 'male'
-  return ''
-}
-
-const allRankCategories = computed<WorkflowPlatformCategoryResource[]>(() => {
-  const platformCode = selectedPlatform.value?.code || ''
-  return props.resources?.platformCategories?.[platformCode] || []
-})
-const rankCategories = computed(() => {
-  const gender = resolveAudienceGender(baseConfig.value.audience)
-  return gender
-    ? allRankCategories.value.filter(item => item.gender === gender)
-    : allRankCategories.value
-})
-const hasRankCategories = computed(() => rankCategories.value.length > 0)
-const selectedGenre = computed(() =>
-  hasRankCategories.value
-    ? baseConfig.value.platformCategory
-    : baseConfig.value.genre
-)
+const selectedGenre = computed(() => baseConfig.value.genre)
 const genreOptions = computed(() => Array.from(new Set([
-  ...(hasRankCategories.value
-    ? rankCategories.value.map(item => item.name)
-    : props.resources?.genres || []),
-  selectedGenre.value,
+  ...(props.resources?.genres || []),
+  baseConfig.value.genre,
 ].filter(Boolean))))
 const tagOptions = computed(() => Array.from(new Set([
   ...(props.resources?.tags || []),
@@ -174,8 +148,7 @@ const tagOptions = computed(() => Array.from(new Set([
 const directionReady = computed(() => Boolean(
   baseConfig.value.platform.trim() &&
   baseConfig.value.audience.trim() &&
-  baseConfig.value.genre.trim() &&
-  (!hasRankCategories.value || baseConfig.value.platformCategory.trim())
+  baseConfig.value.genre.trim()
 ))
 const missingDirectionText = computed(() => {
   if (!baseConfig.value.platform.trim()) return '请选择发布平台'
@@ -193,56 +166,26 @@ const updateBaseConfig = (payload: Partial<WorkflowBaseConfig>) => {
   })
 }
 
-// 切换平台时清理旧平台专属分类，避免灵感生成携带失效榜单类型。
 const selectPlatform = (platformName: string) => {
   const platform = platformOptions.value.find(item => item.name === platformName)
   if (!platform) return
-  const gender = resolveAudienceGender(baseConfig.value.audience)
-  const categories = props.resources?.platformCategories?.[platform.code] || []
-  const requiresRankCategory = categories.some(item => !gender || item.gender === gender)
-  const genre = requiresRankCategory ? '' : baseConfig.value.genre
   updateBaseConfig({
     platform: platform.name,
-    genre,
-    platformCategory: requiresRankCategory ? '' : genre,
-    platformCategoryCode: '',
-    platformCategorySource: 'common',
   })
 }
 
 const selectAudience = (audience: string) => {
-  const selectedCategory = allRankCategories.value.find(
-    item => item.code === baseConfig.value.platformCategoryCode
-  )
-  const gender = resolveAudienceGender(audience)
-  const categoryInvalid = Boolean(
-    baseConfig.value.platformCategorySource === 'rank' &&
-    gender &&
-    selectedCategory?.gender !== gender
-  )
-  updateBaseConfig({
-    audience,
-    ...(categoryInvalid
-      ? {
-          genre: '',
-          platformCategory: '',
-          platformCategoryCode: '',
-          platformCategorySource: 'common' as const,
-        }
-      : {}),
-  })
+  updateBaseConfig({ audience })
 }
 
 const selectGenre = (genre: string) => {
   const value = genre.trim()
   if (!value) return
-  const rankCategory = rankCategories.value.find(item => item.name === value)
   const isCommonGenre = (props.resources?.genres || []).includes(value)
   updateBaseConfig({
     genre: value,
     platformCategory: value,
-    platformCategoryCode: rankCategory?.code || '',
-    platformCategorySource: rankCategory ? 'rank' : isCommonGenre ? 'common' : 'custom',
+    platformCategorySource: isCommonGenre ? 'common' : 'custom',
   })
 }
 

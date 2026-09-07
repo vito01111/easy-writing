@@ -10,9 +10,7 @@ export type FeatureKey =
   | "aiImage"
   | "workflowBook"
   | "breakdown"
-  | "novelRank"
   | "inspiration"
-  | "wordRanking"
   | "writeStatistics"
   | "byokModels"
   | "personaAgent";

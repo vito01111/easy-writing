@@ -63,12 +63,6 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '码字统计' }
       },
       {
-        path: '/novelRank',
-        name: 'NovelRank',
-        component: () => import('@/views/NovelRank/index.vue'),
-        meta: { title: '榜单风向' }
-      },
-      {
         path: '/bookBreakdown',
         name: 'BookBreakdown',
         component: () => import('@/views/BookBreakdown/index.vue'),

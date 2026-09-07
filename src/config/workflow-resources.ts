@@ -21,8 +21,6 @@ export const LOCAL_WORKFLOW_RESOURCES: WorkflowResources = {
     { code: 'zongheng', name: '纵横中文网', desc: '男频老牌站点', icon: 'fa-solid fa-mountain' },
     { code: 'feilu', name: '飞卢小说', desc: '脑洞快节奏短平快', icon: 'fa-solid fa-rocket' },
   ],
-  // 平台分类榜单是服务端爬取的真实榜单数据，开源版无数据源；分类走自定义输入
-  platformCategories: {},
   genres: [
     '玄幻', '仙侠', '都市', '历史', '科幻', '悬疑', '游戏', '体育',
     '军事', '奇幻', '武侠', '现实', '古言', '现言', '幻言', '衍生同人',

@@ -1,10 +1,10 @@
 package: cloud.lazycat.app.easywriting
-version: 1.0.8
+version: 1.0.9
 name: 易创
 description: 纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词，数据存于浏览器本地
 author: yilujian
 license: AGPL-3.0-only
-homepage: https://github.com/yilujian/easy-writing
+homepage: https://github.com/vito01111/easy-writing
 min_os_version: 1.5.0
 unsupported_platforms:
   - android
@@ -20,7 +20,7 @@ locales:
       custom prompts and browser-local data storage
 permissions:
   required:
-    # 随包代理服务需要出站转发：AI 供应商、榜单站点、图床
+    # 随包代理服务需要出站转发：AI 供应商、图床
     - net.internet
     # 文件拦截写通道：应用文稿目录 /lzcapp/documents/<uid>（导出/保存）
     - document.private

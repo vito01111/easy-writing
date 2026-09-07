@@ -1,25 +1,37 @@
 {
   "app_id": 6459,
   "package": "cloud.lazycat.app.easywriting",
-  "lpk_path": "../lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.8.lpk",
+  "lpk_path": "../lazycat/lpk-store/cloud.lazycat.app.easywriting-v1.0.9.lpk",
   "is_original": false,
-  "source": "https://github.com/yilujian/easy-writing",
+  "source": "https://github.com/vito01111/easy-writing",
   "source_author": "yilujian",
   "upstream_license": "AGPL-3.0-only",
   "locales": {
     "zh": {
       "name": "易创",
       "brief": "纯本地优先的开源 AI 网文写作软件：小说创作、BYOK 直连 AI、自定义提示词",
-      "keywords": ["AI写作", "网文", "小说", "写作工具", "码字统计"],
-      "description": "易创（easy-writing）是开源 AGPL-3.0 的本地优先 AI 网文写作软件，由长期线上运营的写作平台客户端改造而来。\n\n原项目功能：TipTap 富文本写作台，卷/章目录树、边写边存、每章自动保留历史版本；书架多作品管理（分组/封面/TXT·JSON 导入导出/回收站）；参考资料五件套（大纲、角色关系图、设定、时间线、故事线）；码字统计与灵感速记；AI 辅助支持 BYOK 直连 DeepSeek、通义千问、智谱、OpenRouter 等 OpenAI 兼容渠道及本地 Ollama，提供划词润色、流式续写、妙笔对话、工作流一键建书、AI 封面与取名器；榜单风向内置番茄/起点/七猫适配器。\n\n懒猫版新增：网页端开箱即用，数据按浏览器隔离存储；导出/导入接入懒猫网盘（保存到懒猫网盘、从懒猫网盘打开，按微服用户隔离）；榜单抓取经服务端真实浏览器渲染，起点/番茄/七猫在网页端可用；BYOK 密钥仅保存在浏览器本地，代理转发不落盘。",
-      "changelog": "首次上架：上游 v1.0.6 功能全量移植；新增懒猫网盘文件拦截（导入/导出）、服务端渲染榜单抓取（起点/番茄/七猫）、同源 AI 代理（密钥仅存浏览器本地）。"
+      "keywords": [
+        "AI写作",
+        "网文",
+        "小说",
+        "写作工具",
+        "码字统计"
+      ],
+      "description": "易创（easy-writing）是开源 AGPL-3.0 的本地优先 AI 网文写作软件，由长期线上运营的写作平台客户端改造而来。\n\n原项目功能：TipTap 富文本写作台，卷/章目录树、边写边存、每章自动保留历史版本；书架多作品管理（分组/封面/TXT·JSON 导入导出/回收站）；参考资料五件套（大纲、角色关系图、设定、时间线、故事线）；码字统计与灵感速记；AI 辅助支持 BYOK 直连 DeepSeek、通义千问、智谱、OpenRouter 等 OpenAI 兼容渠道及本地 Ollama，提供划词润色、流式续写、妙笔对话、工作流一键建书、AI 封面与取名器。\n\n懒猫版新增：网页端开箱即用，数据按浏览器隔离存储；导出/导入接入懒猫网盘（保存到懒猫网盘、从懒猫网盘打开，按微服用户隔离）；源码按 AGPL-3.0 开源于 fork 仓库（见来源链接）；BYOK 密钥仅保存在浏览器本地，服务端转发不落盘。",
+      "changelog": "按审核反馈整改：移除榜单风向功能；源码按上游 AGPL-3.0 要求开源于 fork 仓库。同时保留上游 v1.0.6 全量写作功能与懒猫网盘文件拦截（导入/导出）。"
     },
     "en": {
       "name": "Easy Writing",
       "brief": "Open-source local-first AI novel writing app: BYOK direct AI connection, custom prompts",
-      "keywords": ["AI writing", "novel", "web novel", "writing tool", "word count"],
-      "description": "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and灵感 notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation; rank trackers for Fanqie/Qidian/Qimao.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); rank crawling rendered by a built-in real-browser worker so Qidian/Fanqie/Qimao work in the browser; BYOK keys stay in browser local storage only.",
-      "changelog": "First release: full port of upstream v1.0.6; adds LazyCat Drive file interception (import/export), server-rendered rank crawling (Qidian/Fanqie/Qimao) and same-origin AI proxy (keys stay in browser)."
+      "keywords": [
+        "AI writing",
+        "novel",
+        "web novel",
+        "writing tool",
+        "word count"
+      ],
+      "description": "Easy Writing (easy-writing) is an open-source (AGPL-3.0) local-first AI novel writing app.\n\nUpstream features: TipTap rich-text editor with volume/chapter tree, autosave and per-chapter version history; multi-book shelf (groups, covers, TXT/JSON import-export, recycle bin); reference toolkit (outline, character relations, settings, timeline, storyline); writing statistics and idea notes; BYOK AI through OpenAI-compatible providers (DeepSeek, Qwen, Zhipu, OpenRouter) and local Ollama, with selection polish, streaming continuation, AI chat, one-click book workflow and cover generation.\n\nLazyCat edition: works out of the box in the browser with per-user isolated data; import/export integrated with LazyCat Drive (save to / open from LazyCat Drive, isolated per microserver user); modified source is open-sourced under AGPL-3.0 in the fork repository (see source link); BYOK keys stay in browser local storage only.",
+      "changelog": "Compliance update per review feedback: removed the rank-tracking feature; modified source open-sourced under upstream AGPL-3.0 in the fork repository. All upstream v1.0.6 writing features and LazyCat Drive file interception (import/export) remain."
     }
   },
   "support": {
@@ -34,7 +46,6 @@
     "pc": [
       "screenshots/pc-01-shelf.png",
       "screenshots/pc-02-writing.png",
-      "screenshots/pc-03-rank.png",
       "screenshots/pc-04-models.png"
     ],
     "mobile": []
@@ -56,9 +67,10 @@
       "label": "BYOK 直连与本地数据：密钥仅存浏览器本地",
       "evidence": [
         "src/utils/local-ai-client.ts 密钥仅浏览器侧拼装后装信封转发",
-        "server.mjs 代理仅转发不落盘（无持久化逻辑）"
+        "server.mjs 服务端转发仅过境不落盘（无持久化逻辑）"
       ]
     }
   ],
-  "review_feedback": []
+  "review_feedback": [],
+  "version": "1.0.9"
 }
