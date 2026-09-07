@@ -10,7 +10,7 @@ application:
 services:
   server:
     # Store release：运行镜像已复制到懒猫官方 registry（copy-image 2026-09-06）
-    image: registry.lazycat.cloud/u87691755/ew394a48/easywriting-server:490d4bba6614b499
+    image: registry.lazycat.cloud/u87691755/ew394a48/easywriting-server:48dc280ce1922908
     environment:
       - NODE_ENV=production
       - PORT=3000

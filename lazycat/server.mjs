@@ -24,6 +24,7 @@ const MAX_BODY_BYTES = 32 * 1024 * 1024
 // 懒猫文件通道挂载根（读=网盘 RemoteFS，写=应用文稿 documents）
 const REMOTE_FS_ROOT = process.env.REMOTE_FS_ROOT || '/lzcapp/media/RemoteFS'
 const DOCUMENTS_ROOT = process.env.DOCUMENTS_ROOT || '/lzcapp/documents'
+const LAZYCAT_READY = existsSync(REMOTE_FS_ROOT) || existsSync(DOCUMENTS_ROOT)
 const MAX_LAZYCAT_FILE_BYTES = 200 * 1024 * 1024
 const CONNECT_TIMEOUT_MS = 20_000
 const SOCKET_IDLE_TIMEOUT_MS = 300_000
@@ -216,6 +217,160 @@ const handleProxy = async (req, res) => {
 }
 
 // ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// 懒猫文件通道（应用侧显式通道，K7 审核认可形态）
+//
+// 读：/lzcapp/media/RemoteFS/<uid>（ext_config.enable_media_access 挂载的网盘）；
+// 写：/lzcapp/documents/<uid>（document.private 权限挂载的应用文稿）。
+// uid 一律取网关注入的 X-HC-User-ID：只进当前用户目录（审核雷区 1）；
+// 路径规范化并拒绝 .. 与绝对路径（防穿越）；目录逐项容错（审核雷区 2）。
+// ---------------------------------------------------------------------------
+
+const LAZYCAT_ROOTS = {
+  netdisk: REMOTE_FS_ROOT,
+  documents: DOCUMENTS_ROOT,
+}
+
+const currentUid = req => {
+  const uid = String(req.headers['x-hc-user-id'] || '').trim()
+  if (!uid || uid.length > 64 || /[\/]/.test(uid) || uid.includes('..')) return null
+  return uid
+}
+
+const resolveLazycatPath = (req, res, url) => {
+  const root = url.searchParams.get('root') || 'netdisk'
+  const base = LAZYCAT_ROOTS[root]
+  if (!base) {
+    sendJson(res, 400, { ok: false, error: 'invalid root' })
+    return null
+  }
+  const uid = currentUid(req)
+  if (!uid) {
+    sendJson(res, 401, { ok: false, error: 'unauthorized' })
+    return null
+  }
+  const rel = path.normalize(String(url.searchParams.get('path') || '')).replace(/^([\/])+/, '')
+  const segs = rel && rel !== '.' ? rel.split(/[\/]/) : []
+  if (segs.some(seg => !seg || seg === '.' || seg === '..')) {
+    sendJson(res, 400, { ok: false, error: 'invalid path' })
+    return null
+  }
+  const userRoot = path.join(base, uid)
+  const target = segs.length ? path.join(userRoot, ...segs) : userRoot
+  if (!target.startsWith(userRoot)) {
+    sendJson(res, 400, { ok: false, error: 'invalid path' })
+    return null
+  }
+  return { root, uid, userRoot, target: segs.length ? target : null, dir: target }
+}
+
+const listDirSafe = dir => {
+  try {
+    return fsSync.readdirSync(dir, { withFileTypes: true })
+  } catch {
+    return null
+  }
+}
+
+const handleLazycatList = (req, res, url) => {
+  if (!LAZYCAT_READY) return sendJson(res, 501, { ok: false, error: 'lazycat-unavailable' })
+  const ctx = resolveLazycatPath(req, res, url)
+  if (!ctx) return
+  // netdisk：用户目录必须存在才列（不猜、不回退到 RemoteFS 根——审核雷区 1）
+  if (ctx.root === 'netdisk' && !existsSync(ctx.userRoot)) {
+    return sendJson(res, 200, { ok: false, error: 'user-dir-not-found' })
+  }
+  // documents：目录未创建前视为空列表（首次导出前没有任何文件）
+  if (!existsSync(ctx.dir)) {
+    if (ctx.root === 'documents') return sendJson(res, 200, { ok: true, items: [] })
+    return sendJson(res, 200, { ok: false, error: 'dir-not-found' })
+  }
+  const dirents = listDirSafe(ctx.dir)
+  if (!dirents) return sendJson(res, 200, { ok: false, error: 'unreachable', items: [] })
+  const items = []
+  for (const entry of dirents) {
+    const item = { name: entry.name, dir: entry.isDirectory() }
+    try {
+      if (item.dir) {
+        try {
+          fsSync.readdirSync(path.join(ctx.dir, entry.name))
+          item.reachable = true
+        } catch {
+          item.reachable = false // 远程挂载未就绪/无权限：标灰展示
+        }
+      } else {
+        item.size = fsSync.statSync(path.join(ctx.dir, entry.name)).size
+      }
+    } catch {
+      if (item.dir) item.reachable = false
+      else item.size = null
+    }
+    items.push(item)
+  }
+  items.sort((a, b) => (a.dir === b.dir ? a.name.localeCompare(b.name, 'zh') : a.dir ? -1 : 1))
+  sendJson(res, 200, { ok: true, items })
+}
+
+const handleLazycatFile = (req, res, url) => {
+  if (!LAZYCAT_READY) return sendJson(res, 501, { ok: false, error: 'lazycat-unavailable' })
+  const ctx = resolveLazycatPath(req, res, url)
+  if (!ctx) return
+  if (!ctx.target) return sendJson(res, 400, { ok: false, error: 'file path required' })
+  let stat
+  try {
+    stat = fsSync.statSync(ctx.target)
+  } catch {
+    return sendJson(res, 404, { ok: false, error: 'file-not-found' })
+  }
+  if (!stat.isFile()) return sendJson(res, 400, { ok: false, error: 'not a file' })
+  if (stat.size > MAX_LAZYCAT_FILE_BYTES) return sendJson(res, 413, { ok: false, error: 'file too large' })
+  try {
+    const body = fsSync.readFileSync(ctx.target)
+    res.writeHead(200, {
+      'Content-Type': 'application/octet-stream',
+      'Content-Length': body.length,
+      'Cache-Control': 'no-store',
+    })
+    res.end(body)
+  } catch {
+    sendJson(res, 502, { ok: false, error: 'read failed (mount may be offline)' })
+  }
+}
+
+const handleLazycatSave = async (req, res) => {
+  if (!LAZYCAT_READY) return sendJson(res, 501, { ok: false, error: 'lazycat-unavailable' })
+  let body
+  try {
+    body = JSON.parse((await readBody(req)).toString('utf8'))
+  } catch {
+    return sendJson(res, 400, { ok: false, error: 'invalid request' })
+  }
+  const fakeUrl = new URL(`http://127.0.0.1/root?root=${encodeURIComponent(body.root || 'documents')}&path=${encodeURIComponent(String(body.path || ''))}`)
+  const ctx = resolveLazycatPath(req, res, fakeUrl)
+  if (!ctx) return
+  if (ctx.root !== 'documents') return sendJson(res, 400, { ok: false, error: 'save only allowed to documents' })
+  const filename = path.basename(String(body.filename || ''))
+  if (!filename || filename === '.' || filename === '..' || /[\/]/.test(filename)) {
+    return sendJson(res, 400, { ok: false, error: 'invalid filename' })
+  }
+  const content = typeof body.content === 'string'
+    ? Buffer.from(body.content, 'utf8')
+    : typeof body.contentBase64 === 'string'
+      ? Buffer.from(body.contentBase64, 'base64')
+      : null
+  if (!content) return sendJson(res, 400, { ok: false, error: 'content required' })
+  if (content.length > MAX_BODY_BYTES) return sendJson(res, 413, { ok: false, error: 'content too large' })
+  try {
+    fsSync.mkdirSync(ctx.dir, { recursive: true })
+    const target = path.join(ctx.dir, filename)
+    fsSync.writeFileSync(target, content)
+    const rel = path.relative(DOCUMENTS_ROOT, target).split(path.sep).join('/')
+    sendJson(res, 200, { ok: true, path: rel })
+  } catch {
+    sendJson(res, 502, { ok: false, error: 'write failed' })
+  }
+}
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url || '/', `http://127.0.0.1:${PORT}`)
